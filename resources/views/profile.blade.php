@@ -11,6 +11,8 @@
         <h4>Edita tu avatar</h4>
         
         <!--Formulario para cambiar avatar de usuario-->
+
+        <!--Routa definida en web.php. Con user.profile.update llamamos al metodo update_profile -->
         {{Form::open(['route' => ['user.profile.update'], 'files' => true, 'method' => 'PATCH']) }}
           <p>{{Form::file('avatar') }}</p><!--Parte del formulario para subir el archivo-->
           <p>{{Form::submit('Actualizar', ['name' => 'submit']) }}</p><!--Botón submit para actualizar la imágen-->

@@ -9,6 +9,10 @@
           @if (Auth::check())
           @if (Auth::user()->user == 0)
                     <h1>Bienvenid@  a zona multimedia usuario</h1>
+
+                    
+
+
           @endif
                         
                     

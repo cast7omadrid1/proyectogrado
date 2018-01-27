@@ -19,9 +19,9 @@
 {{Form::open(['route' => ['admin.listausuarios.update',$user->id], 'files' => true, 'method' => 'PUT']) }}
 	
 
-<div class="panel panel-default">
-  <div class="panel-heading">Editar usuario</div>
-  <div class="panel-body">
+<div class="panel panel-default ">
+  <div class="panel-heading sizetable">Editar usuario</div>
+  <div class="panel-body ">
     <!--Nombre-->
     <div class='form-group'>
 		{{Form::label('name','Nombre')}}
