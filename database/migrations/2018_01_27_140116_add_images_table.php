@@ -11,6 +11,7 @@ class AddImagesTable extends Migration
      *
      * @return void
      */
+    /*Creación de tabla de imagenes*/
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
@@ -34,3 +35,5 @@ class AddImagesTable extends Migration
         Schema::dropIfExists('images');
     }
 }
+
+

@@ -4,7 +4,7 @@
 @section('contenido')
 
 
-<div class="col-xs-12 col-sm-6 col-md-8">
+<div class="col-xs-12">
  	  <h2 class="tituloseccion tituloeventos" onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Lista de usuarios</h2>
 </div>
 

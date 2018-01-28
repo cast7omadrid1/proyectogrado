@@ -11,6 +11,8 @@ class AddArticlesTable extends Migration
      *
      * @return void
      */
+
+    /*Creación de tabla de articulos*/
     public function up()
     {
         Schema::create('articles', function (Blueprint $table) {

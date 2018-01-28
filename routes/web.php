@@ -70,6 +70,8 @@ Route::get('/contacto', 'PaginasController@contacto');
 Route::get('/plantillamaster', 'PlantillaMasterController@plantillamaster');
 
 
+
+
 //ruta editar foto perfil usuario
 Route::get('/profile', 'UserController@profile')->name('user.profile');
 Route::patch('/profile', 'UserController@update_profile')->name('user.profile.update');
@@ -103,3 +105,9 @@ Route::put('updateusers/{id}/update',[
 
 ]);
 
+//ruta para articulos
+Route::resource('articulos','ArticulosController');
+
+
+
+Route::get('/addimage','ArticulosController@addimage');
