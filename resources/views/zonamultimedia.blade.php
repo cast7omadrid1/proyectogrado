@@ -22,8 +22,8 @@
                       </div>
                       <div class="panel-footer">Panel footer</div>
                       <br>
-                      <a href="{{ url('/addimage') }}" class="btn btn-primary">Añadir imagen</a>
-
+                      <!--<a href="{{ url('/addimage') }}" class="btn btn-primary">Añadir imagen</a>-->
+                      <a href="{{route('articles.create')}}" class="btn btn-primary">Añadir imagen</a>
                     </div>
 
                     

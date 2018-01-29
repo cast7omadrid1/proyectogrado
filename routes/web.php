@@ -106,8 +106,10 @@ Route::put('updateusers/{id}/update',[
 ]);
 
 //ruta para articulos
-Route::resource('articulos','ArticulosController');
+Route::resource('articles','ArticlesController');
 
 
 
-Route::get('/addimage','ArticulosController@addimage');
+
+
+//Route::get('/addimage','ArticulosController@addimage')->name('admin.articulos.addimage');
