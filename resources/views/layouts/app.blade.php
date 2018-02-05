@@ -12,6 +12,9 @@
     <link rel="shortcut icon" href="images/icons/fav_ico.ico"></link>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+     <link href="{{ asset('plugins/trumbowyg/ui/trumbowyg.css') }}" rel="stylesheet">
+
     <!-- estilos propios  -->
     <link rel="stylesheet" type="text/css" href="css/estilospropios.css" media="screen">
     <!--iconos-->
@@ -94,5 +97,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('plugins/trumbowyg/trumbowyg.js')}}"></script>
+
+    @yield('js');
 </body>
 </html>

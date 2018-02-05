@@ -30,12 +30,12 @@ class UserRequest extends FormRequest
         //$user = User::find($this->id);
         //dd($user);
         return [
-            'name'=>'min:4|max:15|required',
+            'name'  => 'min:4|max:15|required',
             //'email' => 'min:4|max:40|required|email|string|unique:users'.$user->id,
             'email' => 'min:4|max:40|required|email|string|unique:users,id,'.$request->get('id'),
             //'email'=> Rule::unique('users')->ignore('$user->id'),
 
-            'user' =>'boolean',
+            'user'  => 'boolean',
         ];
     }
 }

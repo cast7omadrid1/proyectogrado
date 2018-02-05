@@ -17,10 +17,6 @@ Route::get('/', function () {
 });
 
 
-//pruebas
-Route::get('/nosotros','PaginasController@nosotros' ) ;
-//pruebas
-Route::get('/contacto', 'PaginasController@contacto');
 
 //como hacer consulta de datos de una tabla
 /*Route::get('/producto', function(){
@@ -62,7 +58,7 @@ Route::get('/noticias','NoticiasController@noticias');
 Route::get('/organigrama','OrganigramaController@organigrama');
 
 //ruta para el zona multimedia
-Route::get('/zonamultimedia','ZonaMultimediaController@zonamultimedia');
+Route::get('/zonamultimedia','ZonaMultimediaController@zonamultimedia')->name('zonamultimedia');
 //reuta para el contacto
 Route::get('/contacto', 'PaginasController@contacto');
 

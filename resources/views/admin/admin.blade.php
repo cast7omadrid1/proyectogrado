@@ -1,6 +1,6 @@
 
 @extends('layouts.app')
-
+@section('titulo','Panel admin')
 @section('content')
 <!doctype html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->

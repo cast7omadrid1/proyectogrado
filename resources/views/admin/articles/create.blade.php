@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('titulo','Añadir imagenes')
 @section('content')
 
 	{{Form::open(['route'=>'articles.store','method'=>'POST','files'=>true])}}
@@ -12,7 +12,7 @@
 			</div>
 			<div class='form-group'>
 				{{Form::label('description','Descripción imagen')}}
-				{{Form::textarea('description',null,['class'=>'form-control','required'])}}
+				{{Form::textarea('description',null,['class'=>'form-control textarea-content','required'])}}
 			</div>
 			
 			<div class='form-group'>
@@ -30,4 +30,14 @@
  			</div>
 
 		</div>
+
+
+
+@endsection
+
+
+@section('js')
+	<script>
+		$('.textarea-content').trumbowyg();
+	</script>
 @endsection

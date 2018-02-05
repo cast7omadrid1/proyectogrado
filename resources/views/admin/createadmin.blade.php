@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('titulo','Crear administrador')
 @section('content')
 <h1>Crear un nuevo administrador</h1>
 <div class='bg-danger' style='padding: 20px'>¡¡¡Una vez termines de crear el administrador desactiva esta acción-ruta!!!</div>
