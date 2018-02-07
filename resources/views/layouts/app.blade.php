@@ -22,7 +22,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <!--<nav class="navbar navbar-default navbar-static-top">-->
+        <nav class="navbar navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -36,9 +37,10 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/inicio') }}">
-                        <!--{{ config('app.name', 'Laravel') }}-->
                         <!--<img alt="" src="images/captura3.PNG">-->
                     </a>
+
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -54,7 +56,7 @@
                             <li><a href="{{ route('login') }}"><span class="fa fa-sign-in"></span>Login</a></li>
                             <li><a href="{{ route('register') }}"><span class="fa fa-pencil-square-o"></span>Registrarse</a></li>
                         @else
-                            <li class="dropdown">
+                            <li class="navbar-static-top">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                    
                                    <!--Imagen de avatar, si no esta cambiado, muestra imagen por defecto-->
@@ -69,6 +71,11 @@
                                         <a href="{{route('home') }}">
                                             Home
                                         </a>
+                                        
+                                        
+
+                                            
+
                                         <!--Nos envia al perfil del usuario-->
                                         <a href="{{route('user.profile') }}">
                                             Perfil usuario

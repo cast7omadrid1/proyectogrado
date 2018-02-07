@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 <!doctype html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
@@ -37,7 +35,7 @@
 
   <!-- Margo CSS Styles  -->
   <link rel="stylesheet" type="text/css" href="css-bootstrap/style.css" media="screen">
-
+  
   <!-- Responsive CSS Styles  -->
   <link rel="stylesheet" type="text/css" href="css-bootstrap/responsive.css" media="screen">
 
@@ -98,7 +96,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-7">
-              <!-- Start Contact Info -->
+              <!-- Start Contact Info 
               <ul class="contact-details">
                 <li><a href="#"><i class="fa fa-map-marker"></i> Calle Basilio Boggiero, Zaragoza, España</a>
                 </li>
@@ -107,11 +105,11 @@
                 <li><a href="#"><i class="fa fa-phone"></i> +34 976 618 450</a>
                 </li>
               </ul>
-              <!-- End Contact Info -->
+              <!-- End Contact Info 
             </div>
-            <!-- .col-md-6 -->
+            <!-- .col-md-6 
             <div class="col-md-5">
-               <!-- Start Social Links -->
+               <!-- Start Social Links 
               <ul class="social-list">
                 <li>
                   <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
@@ -179,6 +177,61 @@
                 <a href="{{ url('/zonamultimedia') }}">Zona multimedia</a>
               </li>
               <li><a href="{{ url('/contacto') }}">Contacto</a>
+              </li>
+              <li>
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}"><span class="fa fa-sign-in"></span>Login</a></li>
+                            <li><a href="{{ route('register') }}"><span class="fa fa-pencil-square-o"></span>Registrarse</a></li>
+                        @else
+                            <li class="navbar-static-top">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                   
+                                   <!--Imagen de avatar, si no esta cambiado, muestra imagen por defecto-->
+                                   <img width="20px" height="20px" src="{{ asset('uploads/avatars/'.Auth::user()->avatar) }}">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+
+                                        <a href="{{route('home') }}">
+                                            Home
+                                        </a>
+
+                                         <a href="{{ url('/admin') }}">
+                                            Panel admin
+                                          </a>
+
+                                        <!--Nos envia al perfil del usuario-->
+                                        <a href="{{route('user.profile') }}">
+                                            Perfil usuario
+                                        </a>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Salir
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                            
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
               </li>
              </ul>
           </div>
@@ -408,4 +461,3 @@
 
 </html>
 
-@stop
