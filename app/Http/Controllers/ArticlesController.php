@@ -17,9 +17,30 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        
+        $articles = Article::Search($request->title)->orderBy('id','DESC')->paginate(2);
+        //each es una especie de foreach
+        $articles->each(function($articles){
+            //user hace referencia a la relacion
+            $articles->user;
+            $articles->image;
+
+            //dd($articles->image);
+        });
+
+
+        $images = Image::orderBy('id')->paginate(5);
+        $images->each(function($images){
+            $images->article;
+            
+        });
+
+
+        return View('admin.listaarticulos')->with('articles',$articles)->with('images',$images);
+          
+         //dd($articles);
     }
 
     /**
@@ -72,7 +93,19 @@ class ArticlesController extends Controller
         //almacenamos el objeto
         $image->save();
 
-        return redirect()->route('zonamultimedia');
+
+        //if(Route::has('login')){
+            //if(Auth::check()){
+                //if(Auth::user()->user == 0){
+                    return redirect()->route('zonamultimedia');
+                //}else if(Auth::user()->user == 1){
+                   //return redirect()->route('admin.articles.listaarticulos');
+                //}
+            //}
+
+        //}
+
+        
 
         //dd($article);
 

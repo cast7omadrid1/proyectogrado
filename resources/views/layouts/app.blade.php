@@ -72,10 +72,7 @@
                                             Home
                                         </a>
                                         
-                                        
-
-                                            
-
+                                    
                                         <!--Nos envia al perfil del usuario-->
                                         <a href="{{route('user.profile') }}">
                                             Perfil usuario

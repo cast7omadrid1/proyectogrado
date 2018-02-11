@@ -2,6 +2,19 @@
 @section('titulo','Añadir imagenes')
 @section('content')
 
+
+	@if(count($errors)>0)
+		<div class='alert alert-danger' role="alert">
+			<ul>
+			@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+			@endforeach
+			</ul>
+		</div>
+  	@endif
+
+
+	<!--La ruta hace referencia al metodo utilizado por el formulario-->
 	{{Form::open(['route'=>'articles.store','method'=>'POST','files'=>true])}}
 		<div class="panel panel-default ">
   			<div class="panel-heading">Añadir imagenes</div>
@@ -37,7 +50,7 @@
 
 
 @section('js')
-	<script>
+	<!--<script>
 		$('.textarea-content').trumbowyg();
-	</script>
+	</script>-->
 @endsection

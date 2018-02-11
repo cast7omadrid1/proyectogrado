@@ -12,6 +12,15 @@
 <div class="panel sizetable">
   
   <div class="panel-body">
+
+  <!--Buscador de usuarios-->
+{{Form::open(['route' => 'admin.listausuarios','method' => 'GET', 'class' => 'navbar-form pull-right'])}}
+<div class="input-group">
+	{{Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar usuario','aria-describedby'=>'search'])}}
+	<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+</div>
+{{Form::close()}}
+
 <table class="table table-striped " >
 	<thead>
 		<th>ID</th>

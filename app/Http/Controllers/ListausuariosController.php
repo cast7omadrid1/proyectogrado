@@ -11,12 +11,12 @@ use App\Http\Requests\UserRequest;
 class ListausuariosController extends Controller
 {
     
-    public function listausuarios(){
+    public function listausuarios(Request $request){
         //return View('admin.listausuarios');
 
         //dd("test");
 
-        $users=User::orderBy("id","ASC")->paginate(2);
+        $users=User::Search($request->name)->orderBy("id","ASC")->paginate(2);
         return View('admin.listausuarios')->with('users',$users);
 
     }

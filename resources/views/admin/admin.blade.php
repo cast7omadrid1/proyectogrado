@@ -150,14 +150,14 @@
           </div>
           <div class="navbar-collapse collapse"></div>
             <!-- Stat Search -->
-            <div class="search-side">
+            <!--<div class="search-side">
               <a class="show-search"><i class="fa fa-search"></i></a>
               <div class="search-form">
                 <form autocomplete="off" role="search" method="get" class="searchform" action="#">
                   <input type="text" value="" name="s" id="s" placeholder="Buscar...">
                 </form>
               </div>
-            </div>
+            </div>-->
             <!-- End Search -->
            
 
@@ -170,7 +170,7 @@
                 <a href="{{ url('/listausuarios') }}">Usuarios</a>
               </li>
               <li>
-                <a href="#">Vacio</a>
+                <a href="{{url('/listaarticulos')}}">Articulos</a>
               </li>
               <li>
                 <a href="#">Vacio</a>

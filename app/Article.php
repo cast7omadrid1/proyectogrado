@@ -21,6 +21,16 @@ class Article extends Model
     public function image(){
 
     	return $this->hasMany('App\Image');
+
     }
+
+
+    public function scopeSearch($query, $title){
+
+        //nombre  de la columna donde busca, 'como', contenido que va a buscar
+        return $query->where('title','LIKE',"%$title%");
+
+    }
+
 
 }

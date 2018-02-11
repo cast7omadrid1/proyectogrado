@@ -105,7 +105,8 @@ Route::put('updateusers/{id}/update',[
 Route::resource('articles','ArticlesController');
 
 
-
+//ruta para el listado de usuarios en panel admin
+Route::get('/listaarticulos','ArticlesController@index')->name('admin.listaarticulos');
 
 
 //Route::get('/addimage','ArticulosController@addimage')->name('admin.articulos.addimage');
