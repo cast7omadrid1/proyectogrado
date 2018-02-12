@@ -20,8 +20,12 @@ class AddArticlesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('user_id')->unsigned();//modificador
+            $table->integer('category_id')->unsigned();//modificador
+
             //user_id es clave foranea de id de la tabla usuarios. Si eliminamos un user, eliminaremos sus articulos
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->timestamps();
         });

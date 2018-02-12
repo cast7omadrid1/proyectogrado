@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-use App\Article;
-use App\Image;
+
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ArticleRequest;
+use App\Category;
+use App\Tag;
+use App\Article;
+use App\Image;
+
 
 class ArticlesController extends Controller
 {
@@ -50,7 +54,12 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('admin.articles.create');
+
+        $categories = Category::orderBy('name','ASC')->pluck('name','id');//nos traemos las categorias
+        //dd($categories);
+        $tags = Tag::orderBy('name','ASC')->pluck('name','id');
+
+        return view('admin.articles.create')->with('categories',$categories)->with('tags',$tags);
     }
 
     /**
@@ -63,11 +72,13 @@ class ArticlesController extends Controller
     {
         
 
+        //dd($request->input('tags'));
         ////manipulación imágenes
 
         if($request->file('image')){
 
             $file = $request->file('image');
+            //dd($file);
             //le damos un nombre unico a cada imagen
             $name = 'socceradicts_' . time() .'.'.$file->getClientOriginalExtension();
             //ruta donde guardar las imagenes
@@ -84,6 +95,13 @@ class ArticlesController extends Controller
         //guardamos
         $article->save();
         
+
+        //rellenamos la tabla pivote
+        $article->tags()->sync($request->tags);
+
+
+
+
         //objeto creado para imagenes
         $image = new Image();
         //almacenamos el nombre de la imagen dentro del objeto dentro de la columna name

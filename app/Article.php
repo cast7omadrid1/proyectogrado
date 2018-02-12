@@ -8,7 +8,7 @@ class Article extends Model
 {
     protected $table = "articles";
 
-    protected $fillable = ['title','description','user_id'];
+    protected $fillable = ['title','description','user_id','category_id'];
 
     //un articulo es de un solo usuario
     public function user(){
@@ -17,6 +17,15 @@ class Article extends Model
 
     }
 
+
+    //un articulo puede contener varias imagenes
+    public function category(){
+
+        return $this->belongsTo('App\Category');
+
+    }
+
+
     //un articulo puede contener varias imagenes
     public function image(){
 
@@ -24,6 +33,13 @@ class Article extends Model
 
     }
 
+
+    public function tags(){
+
+        return $this->belongsToMany('App\Tag');
+
+
+    }
 
     public function scopeSearch($query, $title){
 

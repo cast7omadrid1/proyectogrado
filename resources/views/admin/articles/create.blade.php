@@ -27,7 +27,18 @@
 				{{Form::label('description','Descripción imagen')}}
 				{{Form::textarea('description',null,['class'=>'form-control textarea-content','required'])}}
 			</div>
+
+			<div class='form-group'>
+				{{Form::label('category_id','Categoría')}}
+				{{Form::select('category_id',$categories,null,['class'=>'form-control','placeholder' => 'Selecciona uno de los campos','required'])}}
+			</div>
 			
+			<div class='form-group'>
+				{{Form::label('tags','Tags')}}
+				{{Form::select('tags[]',$tags,null,['tags'=>'id','class'=>'form-control','multiple','required'])}}
+			</div>
+
+
 			<div class='form-group'>
 				{{Form::label('image','Imagen')}}
 				{{Form::file('image')}}
