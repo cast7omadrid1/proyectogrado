@@ -37,6 +37,8 @@ class ListausuariosController extends Controller
 
         //obtenemos los datos que queremos editar
         $user = User::find($id);
+
+        //dd($user);
         //le pasamos a la vista los datos del usuario a editar
         return view('admin.edit')->with('user',$user);
 

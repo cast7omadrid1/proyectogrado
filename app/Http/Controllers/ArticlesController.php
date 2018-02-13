@@ -12,6 +12,8 @@ use App\Category;
 use App\Tag;
 use App\Article;
 use App\Image;
+use Illuminate\Database\Eloquent\Builder;
+
 
 
 class ArticlesController extends Controller
@@ -24,25 +26,27 @@ class ArticlesController extends Controller
     public function index(Request $request)
     {
         
+        
+
         $articles = Article::Search($request->title)->orderBy('id','DESC')->paginate(2);
         //each es una especie de foreach
         $articles->each(function($articles){
-            //user hace referencia a la relacion
+            //user hace referencia a la relacion en el modelo
             $articles->user;
-            $articles->image;
+            //$articles->image;
 
-            //dd($articles->image);
+            //dd($articles);
         });
 
 
-        $images = Image::orderBy('id')->paginate(5);
+        /*$images = Image::orderBy('id')->paginate(5);
         $images->each(function($images){
             $images->article;
             
-        });
+        });*/
 
 
-        return View('admin.listaarticulos')->with('articles',$articles)->with('images',$images);
+        return View('admin.listaarticulos')->with('articles',$articles);
           
          //dd($articles);
     }
@@ -54,7 +58,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-
+        //pluck sustituye a lists
         $categories = Category::orderBy('name','ASC')->pluck('name','id');//nos traemos las categorias
         //dd($categories);
         $tags = Tag::orderBy('name','ASC')->pluck('name','id');
@@ -95,10 +99,9 @@ class ArticlesController extends Controller
         //guardamos
         $article->save();
         
-
+        
         //rellenamos la tabla pivote
         $article->tags()->sync($request->tags);
-
 
 
 
@@ -127,7 +130,6 @@ class ArticlesController extends Controller
 
         //dd($article);
 
-
     }
 
     /**
@@ -149,8 +151,21 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        //pluck sustituye a lists
+        $article = Article::find($id);
+        
+        //$article = Article::orderBy('title','DESC')->pluck('title','id');;
+        //dd($article);
+
+        $categories = Category::orderBy('name','DESC')->pluck('name','id');
+        $tags = Tag::orderBy('name','DESC')->pluck('name','id');
+        
+        //devolvemos la vista para la edición de los articulos
+        return view('admin.articles.edit')->with('article',$article)->with('categories',$categories)->with('tags',$tags);
     }
+
+
+    
 
     /**
      * Update the specified resource in storage.

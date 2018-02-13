@@ -26,8 +26,8 @@
 		<th>Titulo</th>
 		<th>Description</th>
 		<th>Usuario</th>
-		<th>Nombre imagen</th>
-		<th>Imagen</th>
+		<!--<th>Nombre imagen</th>
+		<th>Imagen</th>-->
 	</thead>
 	<!--for each para mostrar todos los articulos-->
 	<tbody>
@@ -45,17 +45,17 @@
 					
 					<!--obtener nombre imagen-->
 					<!--recorremos la colección de imagenes dentro de articulos y obtenemos el nombre-->
-					@foreach($article->image as $article)
-						<td>{{$article->name}}</td>
-						<td><img width="30px" height="30px" src="{{ asset('images/articulos/'.$article->name) }}"></td>
-					@endforeach
+
+
+					<!--EEEEEEEEERROOOOOOOOOOOOOR-->
+					
 						 
 
 					
 					<td>
 						<!--Botones para editar y eliminar articulos-->
-						<a href="" class="btn btn-primary">Editar</a>
-						<a href="" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este articulo?')">Eliminar</a>
+						<a href="{{route('admin.articles.edit', $article->id)}}" class="btn btn-primary">Editar</a>
+						<a href="" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este usuario?')">Eliminar</a>
 						
 					</td>
 			</tr>

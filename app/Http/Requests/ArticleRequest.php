@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Article;
+use Illuminate\Http\Request;
 
 class ArticleRequest extends FormRequest
 {
