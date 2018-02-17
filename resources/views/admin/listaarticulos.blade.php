@@ -25,6 +25,7 @@
 		<th>ID</th>
 		<th>Titulo</th>
 		<th>Description</th>
+		<th>Categoria</th>
 		<th>Usuario</th>
 		<!--<th>Nombre imagen</th>
 		<th>Imagen</th>-->
@@ -38,7 +39,7 @@
 					<td>{{$article->id}}</td>
 					<td>{{$article->title}}</td>		
 					<td>{{$article->description}}</td>
-					
+					<td>{{$article->category->name}}</td>
 					<!--obtener nombre usuario-->
 					<td>{{$article->user->name}}</td>
 					
@@ -55,7 +56,7 @@
 					<td>
 						<!--Botones para editar y eliminar articulos-->
 						<a href="{{route('admin.articles.edit', $article->id)}}" class="btn btn-primary">Editar</a>
-						<a href="" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este usuario?')">Eliminar</a>
+						<a href="{{route('admin.articles.destroy',$article->id)}}" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este articulo?')">Eliminar</a>
 						
 					</td>
 			</tr>

@@ -118,4 +118,25 @@ Route::get('editarticle/{id}/edit',[
 
 ]);
 
+
+/*ruta para editar un articulo*/
+Route::put('updatearticles/{id}/update',[
+
+	'uses'=>'ArticlesController@update',
+	'as' => 'admin.articles.update',
+
+]);
+
+//ruta para eliminar un articulo
+Route::get('eliminararticulo/{id}/destroy',[
+
+	'uses'=>'ArticlesController@destroy',
+	'as' => 'admin.articles.destroy'
+
+]);
+
+
+
+
+
 //Route::get('/addimage','ArticulosController@addimage')->name('admin.articulos.addimage');

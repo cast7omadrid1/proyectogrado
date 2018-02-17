@@ -32,6 +32,7 @@ class ArticlesController extends Controller
         //each es una especie de foreach
         $articles->each(function($articles){
             //user hace referencia a la relacion en el modelo
+            $articles->category;
             $articles->user;
             //$articles->image;
 
@@ -153,15 +154,24 @@ class ArticlesController extends Controller
     {
         //pluck sustituye a lists
         $article = Article::find($id);
-        
+        $article->category;
+        //dd($article->category->id);
         //$article = Article::orderBy('title','DESC')->pluck('title','id');;
         //dd($article);
 
         $categories = Category::orderBy('name','DESC')->pluck('name','id');
         $tags = Tag::orderBy('name','DESC')->pluck('name','id');
         
+        //obtenemos los tag_id en forma de array para mostrar los tags correctos de cada articulo a editar
+        $mis_tags=$article->tags->pluck('id')->ToArray();
+        //dd($mis_tags);
+
         //devolvemos la vista para la edición de los articulos
-        return view('admin.articles.edit')->with('article',$article)->with('categories',$categories)->with('tags',$tags);
+        return view('admin.articles.edit')
+        ->with('article',$article)
+        ->with('categories',$categories)
+        ->with('tags',$tags)
+        ->with('mis_tags',$mis_tags);
     }
 
 
@@ -176,7 +186,17 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
+        $article = Article::find($id);
+        //dd($article);
+        $article->fill($request->all());
+        $article->save();
+
+
+        $article->tags()->sync($request->tags);
+        return redirect()->route('admin.listaarticulos');
+
     }
 
     /**
@@ -187,6 +207,11 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $article =Article::find($id);
+        $article->delete();
+
+        return redirect()->route('admin.listaarticulos');
+
     }
 }
