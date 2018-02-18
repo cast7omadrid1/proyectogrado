@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('titulo','Editar imagenes - ' .$article->title)
+@section('titulo','Editar articulo - ' .$article->title)
 @section('content')
 
 @if(count($errors)>0)
@@ -48,7 +48,7 @@
 
 						<!--botón submnit-->
 			    		<div class='form-group'>
-							{{Form::submit('Editar imagen',['class'=>'btn btn-primary'])}}
+							{{Form::submit('Editar articulo',['class'=>'btn btn-primary'])}}
 						</div>
 			
 	

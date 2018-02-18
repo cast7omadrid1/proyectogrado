@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 
 
+
 class ArticlesController extends Controller
 {
     /**
@@ -84,6 +85,7 @@ class ArticlesController extends Controller
 
             $file = $request->file('image');
             //dd($file);
+            
             //le damos un nombre unico a cada imagen
             $name = 'socceradicts_' . time() .'.'.$file->getClientOriginalExtension();
             //ruta donde guardar las imagenes
@@ -119,7 +121,7 @@ class ArticlesController extends Controller
         //if(Route::has('login')){
             //if(Auth::check()){
                 //if(Auth::user()->user == 0){
-                    return redirect()->route('zonamultimedia');
+                    return redirect()->route('inicio');
                 //}else if(Auth::user()->user == 1){
                    //return redirect()->route('admin.articles.listaarticulos');
                 //}

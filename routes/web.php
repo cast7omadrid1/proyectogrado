@@ -43,7 +43,7 @@ Route::get('/admin','AdminController@admin');
 
 
 //ruta para el inicio
-Route::get('/inicio', 'InicioController@inicio');
+Route::get('/inicio', 'InicioController@inicio')->name('inicio');;
 
 //ruta para el userlogin
 Route::get('/userlogin','UserloginController@userlogin');
@@ -136,7 +136,7 @@ Route::get('eliminararticulo/{id}/destroy',[
 ]);
 
 
-
-
+//ruta para el contacto
+Route::get('/zonamultimedia', 'ImagenesController@index');
 
 //Route::get('/addimage','ArticulosController@addimage')->name('admin.articulos.addimage');
