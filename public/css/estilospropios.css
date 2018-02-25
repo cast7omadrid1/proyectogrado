@@ -40,10 +40,63 @@ h2:hover{
 /*------------------------------------------*/
 /*	 02 - Estilos para tabla listado users
 /*------------------------------------------*/
-
+/*tamaño tabla listado*/
 .sizetable{
 
 	margin-left: 100px;
 	width: 90%;
 	/*overflow-y: hidden;*//*en teoria es para poder verlo en vertical*/
 }
+
+/*color boton panel admin*/
+.botonpaneladmin{
+	
+	background-color: #00D2A8;
+}
+
+/*------------------------------------------*/
+/*	 03 - Estilos para galeria de imagenes
+/*------------------------------------------*/
+
+
+/*pading div galeria imagenes*/
+.leftimage{
+	padding-left: 50px;
+}
+/*margen y color para boton galeria imagenes */
+.paddingboton{
+	margin-left: 50px;
+	margin-bottom: 50px;
+	background-color: #00D2A8;
+}
+
+
+/*media querys*/
+@media (min-width: 1920px){
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
+	}
+	
+}
+	
+@media (min-width: 1200px) {
+
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
+	}
+}
+
+@media (min-width: 991px) {
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
+	}
+
+}
+
+

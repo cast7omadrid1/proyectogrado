@@ -2,9 +2,15 @@
 	.support-main .su-content-wrap{
 		padding: 130px 60px;
 	}
-}
+	
+	
 
 @media (max-width: 1200px) {	
+	
+	
+
+
+
 	.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 		background: #fff;
 		padding: 8px 5px 6px 5px;
@@ -40,6 +46,9 @@
 }
 
 @media (max-width: 991px) {
+
+	
+
 	.navbar-top.affix .navbar-brand {
 		padding: 19px 15px; 
 	}
@@ -188,6 +197,8 @@
 }
 
 @media (max-width: 768px) {
+
+	
   	.navbar-top.affix .navbar-brand {
 		padding: 19px 15px; 
 	}

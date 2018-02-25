@@ -16,6 +16,12 @@
 
 	<!--La ruta hace referencia al metodo utilizado por el formulario-->
 	{{Form::open(['route'=>'articles.store','method'=>'POST','files'=>true])}}
+		
+<div class="container">
+    	<div class="row">
+        	<div class="col-md-8 col-md-offset-2">
+
+
 		<div class="panel panel-default ">
   			<div class="panel-heading">Añadir imagenes</div>
   			<div class="panel-body ">
@@ -54,7 +60,9 @@
  			</div>
 
 		</div>
-
+	</div>
+		</div>
+	</div>
 
 
 @endsection

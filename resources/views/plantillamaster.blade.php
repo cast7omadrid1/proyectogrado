@@ -402,6 +402,7 @@
               <ul>
                 <li><span>Número de teléfono:</span> +34 976 618 450</li>
                 <li><span>Email:</span> socceraddicts@gmail.com</li>
+                <li><a class="popup-gmaps" href="https://maps.google.com/maps?q=221B+Baker+Street,+London,+United+Kingdom&amp;hl=en&amp;t=v&amp;hnear=221B+Baker+St,+London+NW1+6XE,+United+Kingdom"><span>Dirección: </span>abrir google maps</a> </li>
                 <li><span>Website:</span> www.socceradicts.com</li>
               </ul>
             </div>
@@ -456,6 +457,19 @@
 
 
   <script type="text/javascript" src="js/script.js"></script>
+
+
+  <!-- Magnific Popup core CSS file -->
+<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+
+<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<!-- Magnific Popup core JS file -->
+<script src="magnific-popup/jquery.magnific-popup.js"></script>
+
+
+
 
 </body>
 

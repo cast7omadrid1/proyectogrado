@@ -13,7 +13,9 @@ use App\Tag;
 use App\Article;
 use App\Image;
 use Illuminate\Database\Eloquent\Builder;
+use Input;
 
+use Intervention\Image\Facades\ImageManager;
 
 
 
@@ -29,7 +31,7 @@ class ArticlesController extends Controller
         
         
 
-        $articles = Article::Search($request->title)->orderBy('id','DESC')->paginate(2);
+        $articles = Article::Search($request->title)->orderBy('id','DESC')->paginate(4);
         //each es una especie de foreach
         $articles->each(function($articles){
             //user hace referencia a la relacion en el modelo
@@ -90,10 +92,40 @@ class ArticlesController extends Controller
             $name = 'socceradicts_' . time() .'.'.$file->getClientOriginalExtension();
             //ruta donde guardar las imagenes
             $path = public_path() . '/images/articulos/';
+
             //mover archivos según la imagen y según la ruta
             $file->move($path,$name);
+
+
             //dd($path);
         }
+
+        /*pruebas redimensionamiento de imagenes*/
+
+
+        
+
+    /*if($request->file('image'))
+        {
+  
+            $image = $request->file('image');
+            $filename  = 'socceradicts_' . time() .'.'.$image->getClientOriginalExtension();
+            $path = public_path() . '/images/articulosantes/';
+
+            $thumb_img=Image::make($image->getRealPath())->resize(200, 200);
+                
+            $thumb_img->save($path.'/'.$filename,80);
+
+               
+            $path=public_path() . '/images/articulos/';
+
+
+            $file->move($path,$filename);
+
+
+        }*/
+
+
 
         //creamos objeto para obtener toda la información de los articulos
         $article = new Article($request->all());
@@ -107,28 +139,22 @@ class ArticlesController extends Controller
         $article->tags()->sync($request->tags);
 
 
-
         //objeto creado para imagenes
         $image = new Image();
         //almacenamos el nombre de la imagen dentro del objeto dentro de la columna name
         $image->name=$name;
+
         //associate va a encontrar la clave foranea asociada al objeto $article y la almacenará en el objeto $image
         $image->article()->associate($article);
+
+        
         //almacenamos el objeto
         $image->save();
 
 
-        //if(Route::has('login')){
-            //if(Auth::check()){
-                //if(Auth::user()->user == 0){
-                    return redirect()->route('inicio');
-                //}else if(Auth::user()->user == 1){
-                   //return redirect()->route('admin.articles.listaarticulos');
-                //}
-            //}
-
-        //}
-
+        
+        return redirect()->route('inicio');
+               
         
 
         //dd($article);
@@ -147,20 +173,19 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * metodo para la edicción de articulos
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //pluck sustituye a lists
+        
         $article = Article::find($id);
         $article->category;
-        //dd($article->category->id);
-        //$article = Article::orderBy('title','DESC')->pluck('title','id');;
-        //dd($article);
+        
 
+        //pluck sustituye a lists
         $categories = Category::orderBy('name','DESC')->pluck('name','id');
         $tags = Tag::orderBy('name','DESC')->pluck('name','id');
         
@@ -180,7 +205,7 @@ class ArticlesController extends Controller
     
 
     /**
-     * Update the specified resource in storage.
+     * metodo para actualizar la info cambiada
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -189,20 +214,20 @@ class ArticlesController extends Controller
     public function update(Request $request, $id)
     {
         
-
+        //obtenemos los articulos según su id
         $article = Article::find($id);
-        //dd($article);
+        //guardamos cambios
         $article->fill($request->all());
         $article->save();
 
-
+        //sincronizamos la tabla pivote
         $article->tags()->sync($request->tags);
         return redirect()->route('admin.listaarticulos');
 
     }
 
     /**
-     * Remove the specified resource from storage.
+     * metodo para eliminar un articulo
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

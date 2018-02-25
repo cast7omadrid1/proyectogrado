@@ -15,6 +15,7 @@
 
 
 	<!--La ruta hace referencia al metodo utilizado por el formulario-->
+	<!--Pasamos $article como variable-->
 	<!--para editar usamos el metodo PUT-->
 	{{Form::open(['route'=>['articles.update',$article],'method'=>'PUT','files'=>true])}}
 		

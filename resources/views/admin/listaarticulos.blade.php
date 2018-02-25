@@ -72,9 +72,10 @@
 <!--Mostramos botones para cambiar en la lista de -->
 {!!$articles->render()!!}
 
-<hr><a href="{{route('articles.create')}}" class="btn btn-primary">Añadir imagen</a>
+<!--<hr><a href="{{route('articles.create')}}" class="btn btn-primary">Añadir imagen</a>-->
 
-
+<hr><a href="{{route('articles.create')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Añadir imagen</a>
+                    <div class="row">
 
 
 
