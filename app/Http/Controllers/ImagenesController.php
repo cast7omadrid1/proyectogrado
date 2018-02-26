@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Image;
 use Intervention\Image\Facades\ImageManager;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class ImagenesController extends Controller
 {
     
 
-	public function index(){
+	public function index(Request $request){
 
 
-		$images = Image::all();
-
+		/*$images = Image::all();*/
+		$images=Image::Search($request->name)->orderBy("id","ASC")->paginate(6);
 		$images->each(function($images){
 			$images->article;
 			
@@ -30,6 +32,10 @@ class ImagenesController extends Controller
 		//retornamos las imagenes
 		return View('zonamultimedia')->with('images',$images);;
 	}
+
+
+
+
 
 
 }

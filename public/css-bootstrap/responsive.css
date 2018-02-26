@@ -2,12 +2,24 @@
 	.support-main .su-content-wrap{
 		padding: 130px 60px;
 	}
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
+	}
+
+
+	}
 	
 	
 
 @media (max-width: 1200px) {	
 	
-	
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
+	}
 
 
 
@@ -47,7 +59,11 @@
 
 @media (max-width: 991px) {
 
-	
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
+	}
 
 	.navbar-top.affix .navbar-brand {
 		padding: 19px 15px; 
@@ -405,6 +421,13 @@
     
     #main-slide .slider-content h2{
 		font-size: 68px;
+	}
+
+
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
 	}
 }
 
