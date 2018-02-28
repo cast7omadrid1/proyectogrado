@@ -184,6 +184,8 @@ return [
 
         Intervention\Image\ImageServiceprovider::class,
 
+        /*exportar bbdd a excel*/
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
         
@@ -241,6 +243,7 @@ return [
         'Flash'=>Laracasts\Flash\Flash::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
