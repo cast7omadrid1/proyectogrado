@@ -60,7 +60,7 @@ Route::get('/organigrama','OrganigramaController@organigrama');
 //ruta para el zona multimedia
 Route::get('/zonamultimedia','ZonaMultimediaController@zonamultimedia')->name('zonamultimedia');
 //reuta para el contacto
-Route::get('/contacto', 'PaginasController@contacto');
+Route::get('/contacto', 'ContactoController@contacto')->name('contacto');
 
 //ruta para el contacto
 Route::get('/plantillamaster', 'PlantillaMasterController@plantillamaster');
@@ -147,3 +147,23 @@ Route::get('/excel_users', 'ExcelController@exportUsers')->name('admin.excel_use
 
 /*Ruta prueba exportar tabla excel*/
 Route::get('/excel_articles', 'ExcelController@exportArticles')->name('admin.excel_articles');
+
+
+Route::get('categorias/{name}',[
+
+	'uses' => 'ImagenesController@searchCategory',
+	'as'   => 'search.category'
+
+]);
+
+
+Route::get('tags/{name}',[
+
+	'uses' => 'ImagenesController@searchTag',
+	'as'   => 'search.tag'
+
+]);
+
+
+Route::post('send', ['as' => 'send', 'uses' => 'ContactoController@send'] );
+Route::get('contact', ['as' => 'contact', 'uses' => 'ContactoController@index'] );

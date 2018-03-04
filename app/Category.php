@@ -16,4 +16,10 @@ class Category extends Model
 
    }
 
+
+   public function scopeSearchCategory($query,$name){
+
+   	return $query->where('name','=',$name);
+   }
+
 }
