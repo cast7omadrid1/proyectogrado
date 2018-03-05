@@ -4,41 +4,43 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class ContactoController extends Controller
 {
     
     public function contacto(){
 
-    	/*$mensaje = null;
-    	if (isset($_POST['contacto'])){
-
-    		$data = array(
-    			'name'=>Input::get('name'),
-    			'email'=>Input::get('email'),
-    			'subject'=>Input::get('subject'),
-    			'msg' =>Input::get('msg')
-    		);
-
-    		$fromEmail='socceraddicts@gmail.com';
-    		$fromName='Admin';
-
-    		Mail::send('email.plantillamail', $data,function($message) use ($fromName,$fromEmail)
-			{
-    			$message->to($fromEmail,$fromName);
-    			$message->from($fromEmail,$fromName);
-    			$message->subject('Nuevo email de contacto');
-
-    		});
-    		$mensaje='<div class="text-info">Mensaje enviado con exito</div>';
-    	}*/
-
-
-        /*return view('contacto',array('mensaje' =>$mensaje));*/
-
         return view('contacto');
     }
 
+
+
+public function send(Request $request)
+   {
+       //guarda el valor de los campos enviados desde el form en un array
+       $data = $request->all();
+ 	
+ 	   $fromEmail='socceraddicts@gmail.com';
+       $fromName='Admin';
+
+
+       //se envia el array y la vista lo recibe en llaves individuales {{ $email }} , {{ $subject }} a la vista email.message
+       \Mail::send('email.message', $data, function($message) use ($request,$fromEmail,$fromName)
+       {
+           //remitente
+           $message->from($request->email, $request->name);
+ 
+           //asunto
+           $message->subject($request->subject);
+ 
+           //receptor
+           /*$message->to(env('CONTACT_MAIL'), env('CONTACT_NAME'));*/
+           $message->to($fromEmail,$fromName);
+ 
+       });
+       return view('success');//retornamos a la vista success
+   }
 
 
 }

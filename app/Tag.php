@@ -16,6 +16,11 @@ class Tag extends Model
 
    	}
 
+   	public function scopeSearchTag($query,$name){
+
+   		return $query->where('name','=',$name);
+   
+   	}
 
 
 }

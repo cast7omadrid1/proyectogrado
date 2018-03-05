@@ -33,11 +33,28 @@
 				{{Form::label('description','Descripción imagen')}}
 				{{Form::textarea('description',null,['class'=>'form-control textarea-content','required'])}}
 			</div>
+			
 
-			<div class='form-group'>
-				{{Form::label('category_id','Categoría')}}
-				{{Form::select('category_id',$categories,null,['class'=>'form-control','placeholder' => 'Selecciona uno de los campos','required'])}}
-			</div>
+			@if (Route::has('login'))
+    
+          		@if (Auth::check())
+          			@if (Auth::user()->user == 1)
+						<div class='form-group'>
+							{{Form::label('category_id','Categoría')}}
+							{{Form::select('category_id',$categories,null,['class'=>'form-control','placeholder' => 'Selecciona uno de los campos','required'])}}
+						</div>
+				
+			
+					@elseif (Auth::user()->user == 0)
+
+						<div class='form-group'>
+							{{Form::label('category_id','Categoría')}}
+							{{Form::select('category_id',$categories,null,['class'=>'form-control','placeholder' => 'Selecciona uno de los campos','required'])}}
+						</div>
+
+					@endif
+					@endif
+			@endif
 			
 			<div class='form-group'>
 				{{Form::label('tags','Tags')}}
