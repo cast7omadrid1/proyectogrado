@@ -15,6 +15,7 @@ use App\Image;
 use Illuminate\Database\Eloquent\Builder;
 use Input;
 
+
 use Intervention\Image\Facades\ImageManager;
 
 
@@ -68,6 +69,19 @@ class ArticlesController extends Controller
         $tags = Tag::orderBy('name','ASC')->pluck('name','id');
 
         return view('admin.articles.create')->with('categories',$categories)->with('tags',$tags);
+    }
+
+
+    public function eventos(){
+
+        $categories = Category::orderBy('name','ASC')->where('id', '!=', 1)->pluck('name','id');
+        
+
+        $tags = Tag::orderBy('name','ASC')->pluck('name','id');
+
+        return view('admin.articles.create')->with('categories',$categories)->with('tags',$tags);
+
+
     }
 
     /**

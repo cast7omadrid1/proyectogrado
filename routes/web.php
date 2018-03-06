@@ -49,7 +49,7 @@ Route::get('/inicio', 'InicioController@inicio')->name('inicio');;
 Route::get('/userlogin','UserloginController@userlogin');
 
 //ruta para el eventospena
-Route::get('/eventospena','EventospenaController@eventospena');
+Route::get('/eventospena','EventospenaController@index');
 
 //ruta para el noticias
 Route::get('/noticias','NoticiasController@noticias');
@@ -135,7 +135,8 @@ Route::get('eliminararticulo/{id}/destroy',[
 
 ]);
 
-
+/*Ruta prueba exportar tabla excel*/
+Route::get('/create', 'ArticlesController@eventos')->name('admin.articles.eventos');
 
 
 //Route::get('/addimage','ArticulosController@addimage')->name('admin.articulos.addimage');

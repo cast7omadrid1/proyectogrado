@@ -39,8 +39,6 @@ class ImagenesController extends Controller
 		
 		
 
-
-
 		return View('zonamultimedia')->with('articles',$articles);
 
 
