@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css" media="screen">
 </head>
 <body>
+@include('partials.errors')
     <div id="app">
         <!--<nav class="navbar navbar-default navbar-static-top">-->
         <nav class="navbar navbar-static-top">

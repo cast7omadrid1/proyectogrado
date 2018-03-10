@@ -173,7 +173,7 @@
                 <a href="{{url('/listaarticulos')}}">Articulos</a>
               </li>
               <li>
-                <a href="#">Vacio</a>
+                <a href="{{url('/listacategorias')}}">Categorias</a>
               </li>
               <li>
                 <a href="#">Vacio</a>

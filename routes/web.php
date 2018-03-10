@@ -39,7 +39,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //route para panel admin
 
-Route::get('/admin','AdminController@admin');
+Route::get('/admin','AdminController@admin')->name('admin');
 
 
 //ruta para el inicio
@@ -172,3 +172,18 @@ Route::get('tags/{name}',[
 Route::post('send', ['as' => 'send', 'uses' => 'ContactoController@send'] );
 //Route::get('contact', ['as' => 'contact', 'uses' => 'ContactoController@index'] );
 
+
+//ruta para las categorías 
+Route::resource('categories','CategoriesController');
+
+//ruta para el listado de articulos en panel admin
+Route::get('/listacategorias','CategoriesController@index')->name('categories.listacategorias');
+
+
+//ruta para eliminar un articulo
+Route::get('eliminarcategories/{id}/destroy',[
+
+	'uses'=>'CategoriesController@destroy',
+	'as' => 'admin.categories.destroy'
+
+]);
