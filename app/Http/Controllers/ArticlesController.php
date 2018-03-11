@@ -68,16 +68,19 @@ class ArticlesController extends Controller
         //dd($categories);
         $tags = Tag::orderBy('name','ASC')->pluck('name','id');
 
+        
         return view('admin.articles.create')->with('categories',$categories)->with('tags',$tags);
     }
 
-
+    /*metodo para filtrar las categorias que se puede mostrar en formulario de añadir imagen, según usuario*/
     public function eventos(){
 
         $categories = Category::orderBy('name','ASC')->where('id', '!=', 1)->pluck('name','id');
         
 
         $tags = Tag::orderBy('name','ASC')->pluck('name','id');
+
+       
 
         return view('admin.articles.create')->with('categories',$categories)->with('tags',$tags);
 
@@ -165,10 +168,10 @@ class ArticlesController extends Controller
         //almacenamos el objeto
         $image->save();
 
-
+        flash('La imagen '.$image->name.' se ha creado correctamente. Compruebalo en zona multimedia')->success();
         
         return redirect()->route('inicio');
-               
+        
         
 
         //dd($article);
@@ -236,6 +239,9 @@ class ArticlesController extends Controller
 
         //sincronizamos la tabla pivote
         $article->tags()->sync($request->tags);
+
+        flash('El articulo '.$article->title.' se ha actualizado correctamente')->important();
+
         return redirect()->route('admin.listaarticulos');
 
     }
@@ -251,6 +257,8 @@ class ArticlesController extends Controller
         
         $article =Article::find($id);
         $article->delete();
+
+        flash('El articulo '.$article->title.' se ha eliminado correctamente')->error()->important();
 
         return redirect()->route('admin.listaarticulos');
 

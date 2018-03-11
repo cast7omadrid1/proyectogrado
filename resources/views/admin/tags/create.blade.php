@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('titulo','Añadir categorias')
+@section('titulo','Añadir tags')
 @section('content')
 
 
 
 
 	<!--La ruta hace referencia al metodo utilizado por el formulario-->
-	{{Form::open(['route'=>'categories.store','method'=>'POST','files'=>true])}}
+	{{Form::open(['route'=>'tag.store','method'=>'POST','files'=>true])}}
 		
 	<div class="container">
     	<div class="row">
@@ -14,16 +14,16 @@
 
 
 				<div class="panel panel-default ">
-		  			<div class="panel-heading">Añadir categorias</div>
+		  			<div class="panel-heading">Añadir tags</div>
 		  				<div class="panel-body ">
 							<div class="form-group">
 								{{Form::label('name','Nombre')}}
-								{{Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre categoria','required'])}}
+								{{Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre tag','required'])}}
 							</div>
 					
 							<!--botón submnit-->
 				    		<div class='form-group'>
-								{{Form::submit('Añadir categoria',['class'=>'btn btn-primary'])}}
+								{{Form::submit('Añadir tag',['class'=>'btn btn-primary'])}}
 							</div>
 					
 			

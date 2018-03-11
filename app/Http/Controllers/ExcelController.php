@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\User;
 use App\Article;
+use App\Tag;
+use App\Category;
 
 class ExcelController extends Controller
 {
@@ -80,5 +82,61 @@ class ExcelController extends Controller
 	}
 
 
+
+	public function exportTags(Request $request){
+
+	   	Excel::create('TablaTags', function($excel) {
+	 
+	    	$tags = Tag::all();
+	 
+		    $excel->sheet('TablaTags', function($sheet) use($tags) {
+	 
+		    	
+		    	/*$sheet->row(1, [
+    				'ID', 'Nombre', 'Email', 'Fecha de Creación', 'Fecha de Actualización', 'User','Avatar'
+				]);*/
+
+		    	foreach($tags as $index => $tag) {
+    				$sheet->row($index+2, [
+        				$tag->id, $tag->name, $tag->created_at, $tag->updated_at
+    				]); 
+				}
+
+
+		    	$sheet->fromArray($tags);
+ 
+			});
+ 
+		})->export('xlsx');
+		
+	}
+
+	public function excelcategories(Request $request){
+
+	   	Excel::create('TablaCategorias', function($excel) {
+	 
+	    	$categories = Category::all();
+	 
+		    $excel->sheet('TablaCategorias', function($sheet) use($categories) {
+	 
+		    	
+		    	/*$sheet->row(1, [
+    				'ID', 'Nombre', 'Email', 'Fecha de Creación', 'Fecha de Actualización', 'User','Avatar'
+				]);*/
+
+		    	foreach($categories as $index => $category) {
+    				$sheet->row($index+2, [
+        				$category->id, $category->name, $category->created_at, $category->updated_at
+    				]); 
+				}
+
+
+		    	$sheet->fromArray($categories);
+ 
+			});
+ 
+		})->export('xlsx');
+		
+	}
 
 }

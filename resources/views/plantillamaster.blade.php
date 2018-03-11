@@ -268,6 +268,9 @@
    
     
   <div>
+
+  <!--Para mostrar los mensajes flash-->   
+  @include('flash::message')
     <!--El contenido es lo que cambia-->
   @yield('contenido')
   
@@ -469,7 +472,10 @@
 <script src="magnific-popup/jquery.magnific-popup.js"></script>
 
 
-
+ <!--Script para la eliminacion de los mensajes de alerta en 3 segundos-->
+  <script>
+      $('div.alert').delay(3000).fadeOut(350);
+  </script>
 
 </body>
 

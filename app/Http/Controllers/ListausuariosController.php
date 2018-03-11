@@ -27,7 +27,7 @@ class ListausuariosController extends Controller
     	$user=user::find($id);
     	$user->delete();
 
-    	Flash::error('El usuario '. $user->name. 'ha sido eliminado');
+    	flash('El usuario '.$user->name.' se ha eliminado correctamente')->error()->important();
     	return redirect()->route('admin.listausuarios');
 	}
 
@@ -55,7 +55,7 @@ class ListausuariosController extends Controller
         $user->user = $request->user;
         $user->save();
 
-        Flash::warning('El usuario '.$user->name. 'ha sido editado'); /*Solucionar problemas mensaje flash*/
+        flash('El usuario '.$user->name.' se ha actualizado correctamente')->important();
         return redirect()->route('admin.listausuarios');
 
     }

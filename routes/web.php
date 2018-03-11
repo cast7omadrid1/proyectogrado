@@ -142,10 +142,10 @@ Route::get('/create', 'ArticlesController@eventos')->name('admin.articles.evento
 //Route::get('/addimage','ArticulosController@addimage')->name('admin.articulos.addimage');
 
 
-/*Ruta prueba exportar tabla excel*/
+/*Ruta  exportar tabla excel*/
 Route::get('/excel_users', 'ExcelController@exportUsers')->name('admin.excel_users');
 
-/*Ruta prueba exportar tabla excel*/
+/*Ruta  exportar tabla excel*/
 Route::get('/excel_articles', 'ExcelController@exportArticles')->name('admin.excel_articles');
 
 
@@ -173,7 +173,11 @@ Route::post('send', ['as' => 'send', 'uses' => 'ContactoController@send'] );
 //Route::get('contact', ['as' => 'contact', 'uses' => 'ContactoController@index'] );
 
 
-//ruta para las categorías 
+/*								
+*
+*RUTA PARA LAS CATEGORIAS
+*
+*/
 Route::resource('categories','CategoriesController');
 
 //ruta para el listado de articulos en panel admin
@@ -187,3 +191,64 @@ Route::get('eliminarcategories/{id}/destroy',[
 	'as' => 'admin.categories.destroy'
 
 ]);
+
+
+/*ruta para editar un usuario*/
+Route::get('editarcategorias/{id}/edit',[
+
+	'uses'=>'CategoriesController@edit',
+	'as' => 'admin.categories.edit',
+
+]);
+
+/*ruta para editar un articulo*/
+Route::put('updatecategorias/{id}/update',[
+
+	'uses'=>'CategoriesController@update',
+	'as' => 'admin.categories.update',
+
+]);
+
+
+/*Ruta exportar tabla excel*/
+Route::get('/excel_categories', 'ExcelController@excelcategories')->name('admin.excel_categories');
+
+/*								
+*
+*RUTA PARA LOS TAGS
+*
+*/
+/*tengo que poner tag y no tags para que no entre en conflicto con otras rutas*/
+Route::resource('tag','TagsController');
+
+//ruta para el listado de articulos en panel admin
+Route::get('/listatags','TagsController@index')->name('tags.listatags');
+
+
+//ruta para eliminar un articulo
+Route::get('eliminartags/{id}/destroy',[
+
+	'uses'=>'TagsController@destroy',
+	'as' => 'admin.tags.destroy'
+
+]);
+
+
+/*ruta para editar un usuario*/
+Route::get('editartags/{id}/edit',[
+
+	'uses'=>'TagsController@edit',
+	'as' => 'admin.tags.edit',
+
+]);
+
+/*ruta para editar un articulo*/
+Route::put('updatetags/{id}/update',[
+
+	'uses'=>'TagsController@update',
+	'as' => 'admin.tags.update',
+
+]);
+
+/*Ruta exportar tabla excel*/
+Route::get('/excel_tags', 'ExcelController@exportTags')->name('admin.excel_tags');

@@ -22,7 +22,8 @@ class CategoriesController extends Controller
     public function index(Request $request)
     {
         
-    	$categories = Category::orderBy('id','ASC')->paginate(2);
+    	//usamos el metodo Search para el buscador de categorias
+    	$categories=Category::Search($request->name)->orderBy("id","ASC")->paginate(2);
 
         return view('admin.categories.listacategorias')->with('categories',$categories);
         
@@ -53,10 +54,41 @@ class CategoriesController extends Controller
         
     	$category = new Category($request->all());
     	$category->save();
+
+        flash('La categoria '.$category->name.' se ha creado correctamente')->success();
      	
      	return redirect()->route('categories.listacategorias');
 
     }
+
+
+
+
+     public function edit($id)
+    {
+
+    	$category = Category::find($id);
+
+    	return view('admin.categories.edit')->with('category',$category);
+
+
+    }
+
+
+     public function update(Request $request, $id)
+    {
+
+
+    	$category = Category::find($id);
+    	//reemplazamos los datos con los datos obtenidos del formulario
+    	$category->fill($request->all());
+    	$category->save();
+
+        flash('La categoria '.$category->name.' se ha actualizado correctamente')->important();
+
+    	return redirect()->route('categories.listacategorias');
+    }
+
 
 
 
@@ -71,10 +103,12 @@ class CategoriesController extends Controller
     {
         
     	$category = Category::find($id);
+
     	$category->delete();
+
+        flash('La categoria '.$category->name.' se ha eliminado correctamente')->error()->important();
         
-       
-       return redirect()->route('categories.listacategorias');
+        return redirect()->route('categories.listacategorias');
 
     }
 

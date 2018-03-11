@@ -12,10 +12,10 @@
   
   <div class="panel-body">
 
-		<!--Buscador de articulos-->
+		<!--Buscador de categorias-->
 		{{Form::open(['route' => 'categories.index','method' => 'GET', 'class' => 'navbar-form pull-right'])}}
 		<div class="input-group">
-			{{Form::text('title',null,['class'=>'form-control','placeholder'=>'Buscar categoria','aria-describedby'=>'search'])}}
+			{{Form::text('name',null,['class'=>'form-control','placeholder'=>'Buscar categorias','aria-describedby'=>'search'])}}
 			<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 		</div>
 		{{Form::close()}}
@@ -33,7 +33,7 @@
 					<td>{{$category->name}}</td>
 					<td>
 						<!--Botones para editar y eliminar categorias-->
-						<a href="" class="btn btn-primary">Editar</a>
+						<a href="{{route('admin.categories.edit',$category->id)}}" class="btn btn-primary">Editar</a>
 						<a href="{{route('admin.categories.destroy',$category->id)}}" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar esta categoria?')">Eliminar</a>				
 					</td>
 				</tr>
@@ -47,7 +47,7 @@
 
 		<hr><a href="{{route('categories.create')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Añadir categoria</a>
 
-
+		<a href="{{route('admin.excel_categories')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Exportar excel</a>
 
 
 	</div>

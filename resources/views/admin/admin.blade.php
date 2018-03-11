@@ -176,7 +176,7 @@
                 <a href="{{url('/listacategorias')}}">Categorias</a>
               </li>
               <li>
-                <a href="#">Vacio</a>
+                <a href="{{url('/listatags')}}">Tags</a>
               </li>
               <li>
               	<a href="#">Vacio</a>
@@ -272,8 +272,11 @@
   
   <div>
 
-    <!--El contenido es lo que cambia-->
+  <!--Para mostrar los mensajes flash-->   
+  @include('flash::message')
+  <!--El contenido es lo que cambia-->
   @yield('contenido')
+  
   
   </div>
 
@@ -458,7 +461,10 @@
 
 
   <script type="text/javascript" src="js/script.js"></script>
-
+  <!--Script para la eliminacion de los mensajes de alerta en 3 segundos-->
+  <script>
+      $('div.alert').delay(3000).fadeOut(350);
+  </script>
 </body>
 
 </html>

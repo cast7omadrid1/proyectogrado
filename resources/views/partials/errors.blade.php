@@ -1,3 +1,5 @@
+
+<!--Control de errores formularios de creacion y ediccion-->
 @if(count($errors)>0)
 		<div class='alert alert-danger' role="alert">
 			<ul>
