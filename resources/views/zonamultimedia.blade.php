@@ -51,7 +51,7 @@
                                   {{$article->category->name}}
                                 </a>
                                
-                                <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
+                              <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
                               </div>    
                             </div>
@@ -116,7 +116,7 @@
                                   {{$article->category->name}}
                                 </a>
                                
-                                <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
+                              <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
                               </div>    
                             </div>

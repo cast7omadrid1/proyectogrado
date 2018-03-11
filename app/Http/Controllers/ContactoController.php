@@ -22,7 +22,7 @@ public function send(Request $request)
        $data = $request->all();
  	
  	   $fromEmail='socceraddicts@gmail.com';
-       $fromName='Admin';
+     $fromName='Admin';
 
 
        //se envia el array y la vista lo recibe en llaves individuales {{ $email }} , {{ $subject }} a la vista email.message

@@ -47,6 +47,7 @@ class ImagenesController extends Controller
 		
 	}
 
+	
 	/*para la gestión del tiempo articulos*/
 	public function __construct(){
 		Carbon::setLocale('es');
