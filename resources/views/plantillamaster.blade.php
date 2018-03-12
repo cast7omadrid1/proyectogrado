@@ -74,13 +74,30 @@
   <script type="text/javascript" src="js-bootstrap/jquery.parallax.js"></script>
   <script type="text/javascript" src="js-bootstrap/mediaelement-and-player.js"></script>
   <script type="text/javascript" src="js-bootstrap/jquery.slicknav.js"></script> 
-
+  <!--MisJquery-->
   <script type="text/javascript" src="js-bootstrap/MisjQueryJS.js"></script>
 
 
  
   <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<script languague="javascript">
+        function mostrar() {
+            div = document.getElementById('flotante');
+            div.style.display = '';
+            p = document.getElementsById('mostrar');
+            p.style.display = 'none';
+        }
+
+      
+        function cerrar() {
+            div = document.getElementById('flotante');
+            div.style.display = 'none';
+        }
+</script>
+
+
 
 </head>
 

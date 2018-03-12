@@ -49,7 +49,12 @@ Route::get('/inicio', 'InicioController@inicio')->name('inicio');;
 Route::get('/userlogin','UserloginController@userlogin');
 
 //ruta para el eventospena
-Route::get('/eventospena','EventospenaController@index');
+//Route::get('/eventospena','EventospenaController@index');
+
+
+//ruta para articulos
+Route::resource('eventospena','EventospenaController');
+
 
 //ruta para el noticias
 Route::get('/noticias','NoticiasController@noticias');

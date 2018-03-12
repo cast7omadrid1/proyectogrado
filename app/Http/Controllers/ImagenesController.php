@@ -41,19 +41,13 @@ class ImagenesController extends Controller
 
 		return View('zonamultimedia')->with('articles',$articles);
 
-
-
-
-		
 	}
 
 	
-	/*para la gestión del tiempo articulos*/
+	//para la gestión del tiempo articulos
 	public function __construct(){
 		Carbon::setLocale('es');
 	}
-
-
 
 
 	public function searchCategory($name){

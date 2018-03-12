@@ -36,6 +36,14 @@ class User extends Authenticatable
     }
 
 
+    //un user puede tener varios comentarios
+    public function comentarios(){
+
+        return $this->hasMany('App\Comentarios');
+
+    }
+
+
     public function scopeSearch($query, $name){
 
         //nombre  de la columna donde busca, 'como', contenido que va a buscar

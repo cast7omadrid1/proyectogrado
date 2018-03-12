@@ -18,9 +18,9 @@ use Illuminate\Database\Eloquent\Builder;
 class EventospenaController extends Controller
 {
     
-    public function eventospena(){
+    /*public function eventospena(){
         return view('eventospena');
-    }
+    }*/
 
 
 
@@ -53,6 +53,18 @@ class EventospenaController extends Controller
 		return View('eventospena')->with('articles',$articles);
 
 
+
+
+		
+	}
+
+
+	public function __construct(){
+		Carbon::setLocale('es');
+	}
+
+
+	public function store(){
 
 
 		

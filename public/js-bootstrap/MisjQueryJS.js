@@ -20,14 +20,19 @@ $(document).ready(function(){
   
 
 
-$(document).ready(function() {
-    $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-        disableOn: 700,
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-
-        fixedContentPos: false
+/* ------------------------------------------ */
+/*       MOSTRAR DIV OCULTO
+/*  Script para mostrar u ocultar el div oculto
+/*
+/* 
+/* ------------------------------------------ */
+    $(document).ready(function(){
+        $("#mostrar").on( "click", function() {
+            $('#flotante').show(); //muestro mediante id
+            
+         });
+        $("#ocultar").on( "click", function() {
+            $('#flotante').hide(); //oculto mediante id
+            
+        });
     });
-});

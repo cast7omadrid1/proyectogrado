@@ -47,7 +47,7 @@
                               <div class="caption">
                                 <h3>{{$article->description}}</h3>
                                 
-                                <a href="">
+                                <a href="{{route('search.category', $article->category->name)}}">
                                   {{$article->category->name}}
                                 </a>
                                
@@ -112,7 +112,7 @@
                               <div class="caption">
                                 <h3>{{$article->description}}</h3>
                                 
-                                <a href="">
+                                <a href="{{route('search.category', $article->category->name)}}">
                                   {{$article->category->name}}
                                 </a>
                                

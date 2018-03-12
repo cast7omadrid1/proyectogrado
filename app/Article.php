@@ -18,7 +18,7 @@ class Article extends Model
     }
 
 
-    //un articulo puede contener varias imagenes
+    //un articulo puede contener una sola categoria
     public function category(){
 
         return $this->belongsTo('App\Category');
@@ -45,6 +45,14 @@ class Article extends Model
 
         //nombre  de la columna donde busca, 'como', contenido que va a buscar
         return $query->where('title','LIKE',"%$title%");
+
+    }
+
+
+    //un articulo puede tener varios comentarios
+    public function comentarios(){
+
+        return $this->hasMany('App\Comentarios');
 
     }
 

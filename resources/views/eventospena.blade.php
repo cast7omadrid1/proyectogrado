@@ -42,7 +42,27 @@
                                
                                 <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
-                              </div>    
+                              </div>
+                              
+                              
+                              <!--Enlace para mostrar div oculto-->
+                              <p id="mostrar"><a href="javascript:mostrar();">Mostrar comentarios</a></p>
+                              <div id="flotante" style="display:none;">
+                                   <div id="close"><p><a href="javascript:cerrar();">cerrar</a></p></div>
+                                   Este es un div ocultar
+                              </div>
+                              
+
+                              <!--La ruta hace referencia al metodo utilizado por el formulario-->
+                              {{Form::open(['route'=>'eventospena.store','method'=>'POST','files'=>true])}}
+                                 <div class="form-group">
+                                  {{Form::text('name',null,['class'=>'form-control','placeholder'=>'Añade tu comentario','required'])}}
+                                </div>
+                                <!--botón submnit-->
+                                <div class='form-group'>
+                                  {{Form::submit('Enviar comentario',['class'=>'btn btn-primary'])}}
+                                </div>
+                              {{Form::close()}}
                             </div>
                           </div>
                           @endforeach
