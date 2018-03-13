@@ -56,6 +56,16 @@ Route::get('/userlogin','UserloginController@userlogin');
 Route::resource('eventospena','EventospenaController');
 
 
+/*ruta para almacenar comentario*/
+Route::put('storecomentarios/{id}/store',[
+
+	'uses'=>'EventospenaController@store',
+	'as' => 'eventospena.store',
+
+]);
+
+
+
 //ruta para el noticias
 Route::get('/noticias','NoticiasController@noticias');
 
@@ -90,6 +100,7 @@ Route::get('listausuarios/{id}/destroy',[
 ]);
 
 
+
 /*ruta para editar un usuario*/
 Route::get('editarusuarios/{id}/edit',[
 
@@ -105,6 +116,8 @@ Route::put('updateusers/{id}/update',[
 	'as' => 'admin.listausuarios.update',
 
 ]);
+
+
 
 //ruta para articulos
 Route::resource('articles','ArticlesController');

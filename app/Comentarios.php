@@ -19,7 +19,7 @@ class Comentarios extends Model
     }
 
     //un comentario es de un solo articulo
-    public function articles(){
+    public function article(){
 
         return $this->belongsTo('App\Article');
 

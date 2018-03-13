@@ -85,7 +85,7 @@
                     
          	@else
 
-
+          <!--Si el user no esta logado-->
         
                     <!--Titulo de la galería de imagenes-->
                     <div class="col-xs-12">
