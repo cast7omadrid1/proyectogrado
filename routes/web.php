@@ -64,8 +64,6 @@ Route::put('storecomentarios/{id}/store',[
 
 ]);
 
-
-
 //ruta para el noticias
 Route::get('/noticias','NoticiasController@noticias');
 

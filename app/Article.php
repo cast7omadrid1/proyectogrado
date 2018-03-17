@@ -41,6 +41,15 @@ class Article extends Model
 
     }
 
+
+    //un articulo puede tener varios comentarios
+    public function comentarios(){
+
+        return $this->hasMany('App\Comentarios');
+
+    }
+
+
     public function scopeSearch($query, $title){
 
         //nombre  de la columna donde busca, 'como', contenido que va a buscar
@@ -49,12 +58,7 @@ class Article extends Model
     }
 
 
-    //un articulo puede tener varios comentarios
-    public function comentarios(){
-
-        return $this->hasMany('App\Comentarios');
-
-    }
+    
 
 
 }

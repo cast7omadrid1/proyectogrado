@@ -3,6 +3,8 @@
 
 @section('contenido')
 
+<!--Para mostrar los mensajes flash-->
+@include('flash::message')
 
 @if (Route::has('login'))
     
@@ -56,7 +58,9 @@
                               <p id="mostrar"><a href="javascript:mostrar();">Mostrar comentarios</a></p>
                               <div id="flotante" style="display:none;">
                                    <div id="close"><p><a href="javascript:cerrar();">cerrar</a></p></div>
-                                   Este es un div ocultar
+                                   @foreach($comentarios as $comentario)
+                                        {{$comentario->comentarios}}</br>
+                                   @endforeach
                               </div>
                               
 
@@ -74,7 +78,10 @@
                                 </div>
                               {{Form::close()}}
                                 
-                                
+
+                                    
+                                   
+                              
 
                             </div>
                           </div>
@@ -103,9 +110,6 @@
 
     </div>
 
-
-
-	
 </section>
 
 
@@ -124,12 +128,8 @@
     <h2 class="tituloseccion" onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Nuestros eventos ¡Visitanos!</h2>
  </div>
 
-
-
         <div class="row">
                      
-
-
                     <div class="col-md-8">
                         
                         <div class="row">
@@ -178,12 +178,8 @@
           </div>
 
           
-
     </div>
 
-
-
-  
 </section>
 
 @endif
