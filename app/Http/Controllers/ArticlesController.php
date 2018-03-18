@@ -120,8 +120,6 @@ class ArticlesController extends Controller
         /*pruebas redimensionamiento de imagenes*/
 
 
-        
-
     /*if($request->file('image'))
         {
   
@@ -142,16 +140,15 @@ class ArticlesController extends Controller
 
         }*/
 
-
-
         //creamos objeto para obtener toda la información de los articulos
         $article = new Article($request->all());
         //almacenamos el id del usuario
         $article->user_id = \Auth::user()->id;
+
+        //dd($article);
         //guardamos
         $article->save();
-        
-        
+                
         //rellenamos la tabla pivote
         $article->tags()->sync($request->tags);
 

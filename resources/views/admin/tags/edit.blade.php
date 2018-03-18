@@ -2,6 +2,16 @@
 @section('titulo','Editar tags')
 @section('content')
 
+@if(count($errors)>0)
+		<div class='alert alert-danger' role="alert">
+			<ul>
+			@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+			@endforeach
+			</ul>
+		</div>
+  	@endif
+
 
 	<!--La ruta hace referencia al metodo utilizado por el formulario-->
 	{{Form::open(['route'=>['tag.update',$tag],'method'=>'PUT','files'=>true])}}

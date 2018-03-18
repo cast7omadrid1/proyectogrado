@@ -51,7 +51,7 @@ class EventospenaController extends Controller
 	
 		$articles->each(function($articles){
 			$articles->category;
-			$articles->images;
+			$articles->image;
 			
 		});
 		//dd($articles);
@@ -60,18 +60,16 @@ class EventospenaController extends Controller
 		
 		//las relaciones no estan funcionando ok, no me trae la info de article y user
 		$comentarios->each(function($comentarios){
-			$comentarios->article;
-			$comentarios->user;
 			
+			$comentarios->user;
+			$comentarios->article;
 			
 		});
 		//dd($comentarios);
 		
 		
-		
-		
 		return View('eventospena')->with('articles',$articles)->with('comentarios',$comentarios);
-
+		//return View('eventospena')->with('articles',$articles);
 		
 	}
 
@@ -91,7 +89,9 @@ class EventospenaController extends Controller
 
 		
 		$articles=Article::find($id);
-    	$comentarios->articulo_id = $articles->id; 
+		//dd($articles);
+    	
+    	$comentarios->articulo_id = $articles->id;
     	//dd($comentarios);
 		
 		$comentarios->save();
@@ -101,8 +101,6 @@ class EventospenaController extends Controller
 		
 		
 	}
-
-
 
 
 }

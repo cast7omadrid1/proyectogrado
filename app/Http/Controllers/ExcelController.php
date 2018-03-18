@@ -26,7 +26,7 @@ class ExcelController extends Controller
 
 		    	foreach($users as $index => $user) {
     				$sheet->row($index+2, [
-        				$user->id, $user->name, $user->email, $user->created_at, $user->updated_at, $user->user, $user->avatar
+        				$user->id, $user->name, $user->email, $user->created_at, $user->updated_at, $user->user, $user->avatar,$user->socio
     				]); 
 				}
 

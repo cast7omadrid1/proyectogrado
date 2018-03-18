@@ -2,7 +2,15 @@
 @section('titulo','Añadir imagenes')
 @section('content')
 
-
+@if(count($errors)>0)
+		<div class='alert alert-danger' role="alert">
+			<ul>
+			@foreach($errors->all() as $error)
+				<li>{{$error}}</li>
+			@endforeach
+			</ul>
+		</div>
+  @endif
 	
 
 
@@ -27,14 +35,11 @@
 					</div>
 					
 
-					
 					<div class='form-group'>
 						{{Form::label('category_id','Categoría')}}
 						{{Form::select('category_id',$categories,null,['class'=>'form-control','placeholder' => 'Selecciona uno de los campos','required'])}}
 					</div>
 						
-					
-							
 					
 					<div class='form-group'>
 						{{Form::label('tags','Tags')}}
@@ -59,7 +64,7 @@
 				</div>
 		</div>
 	</div>
-
+</div>
 
 @endsection
 

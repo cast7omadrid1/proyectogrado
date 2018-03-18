@@ -60,7 +60,9 @@
 <!--Mostramos botones para cambiar en la lista de usuarios-->
 {!!$users->render()!!}
 
-<hr><a href="{{route('admin.excel_users')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Exportar excel</a>
+<hr><a href="{{route('admin.createuser')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Añadir usuario</a>
+
+<a href="{{route('admin.excel_users')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Exportar excel</a>
                     
 
 

@@ -10,6 +10,7 @@ class Category extends Model
 
    protected $fillable = ["name"];
 
+   //una categoria pertenece a varios articulos
    public function articles(){
 
    		return $this->hasMany('App\Article');

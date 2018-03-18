@@ -22,12 +22,8 @@
  	  <h2 class="tituloseccion" onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Nuestros eventos ¡Visitanos!</h2>
  </div>
 
-
-
 				<div class="row">
                      
-
-
                     <div class="col-md-8">
                         
                         <div class="row">
@@ -60,10 +56,11 @@
                                    <div id="close"><p><a href="javascript:cerrar();">cerrar</a></p></div>
                                    @foreach($comentarios as $comentario)
                                         {{$comentario->comentarios}}</br>
+                                        
+
                                    @endforeach
                               </div>
                               
-
 
                               <!--La ruta hace referencia al metodo utilizado por el formulario-->
                               {{Form::open(['route'=>['eventospena.store',$article],'method'=>'PUT','files'=>true])}}
@@ -78,10 +75,6 @@
                                 </div>
                               {{Form::close()}}
                                 
-
-                                    
-                                   
-                              
 
                             </div>
                           </div>

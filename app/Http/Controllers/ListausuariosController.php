@@ -21,6 +21,30 @@ class ListausuariosController extends Controller
 
     }
 
+     /*metodo para eliminar usuarios*/
+    public function create(){
+
+        return view('admin.createuser');
+
+    }
+    
+    public function store(Request $request){
+        
+        
+        $users = new User($request->all());
+        $users->password = bcrypt($request->password);
+        $users->user=$request->user;
+        $users->socio=$request->socio;
+        $users->save();
+
+        //dd($users);
+
+        flash('El usuario '.$users->name.' se ha creado correctamente')->important();
+
+        return redirect()->route('admin');
+    }
+
+
     /*metodo para eliminar usuarios*/
     public function destroy($id){
     	/*buscamos todos los datos del usuario*/

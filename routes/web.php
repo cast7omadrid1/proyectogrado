@@ -85,6 +85,15 @@ Route::get('/plantillamaster', 'PlantillaMasterController@plantillamaster');
 Route::get('/profile', 'UserController@profile')->name('user.profile');
 Route::patch('/profile', 'UserController@update_profile')->name('user.profile.update');
 
+
+
+//ruta para listado de usuarios
+Route::resource('listausuarios','ListausuariosController');
+
+Route::get('/createuser','ListausuariosController@create')->name('admin.createuser');
+
+
+
 //ruta para el listado de usuarios en panel admin
 Route::get('/listausuarios','ListausuariosController@listausuarios')->name('admin.listausuarios');
 
@@ -119,7 +128,6 @@ Route::put('updateusers/{id}/update',[
 
 //ruta para articulos
 Route::resource('articles','ArticlesController');
-
 
 
 //ruta para el listado de articulos en panel admin
