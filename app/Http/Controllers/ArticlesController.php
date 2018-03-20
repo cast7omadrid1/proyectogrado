@@ -152,6 +152,7 @@ class ArticlesController extends Controller
         //rellenamos la tabla pivote
         $article->tags()->sync($request->tags);
 
+        
 
         //objeto creado para imagenes
         $image = new Image();

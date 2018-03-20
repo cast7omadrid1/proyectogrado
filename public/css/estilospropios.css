@@ -37,7 +37,9 @@ h2:hover{
 	text-decoration: underline;
 }
 
-
+.labeladmin{
+  padding-left:350px;
+}
 
 /*------------------------------------------*/
 /*	 02 - Estilos para tabla listado users
@@ -55,6 +57,16 @@ h2:hover{
 	
 	background-color: #00D2A8;
 }
+
+/*color boton panel admin*/
+.botonpanel{
+	
+	background-color: #00D2A8;
+	color:#ffffff;
+	width: 25%;
+}
+
+
 
 /*------------------------------------------*/
 /*	 03 - Estilos para galeria de imagenes

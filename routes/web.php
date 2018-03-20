@@ -40,7 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //route para panel admin
 
 Route::get('/admin','AdminController@admin')->name('admin');
-
+Route::get('/inicioadmin','InicioadminController@index')->name('inicio.admin');
 
 //ruta para el inicio
 Route::get('/inicio', 'InicioController@inicio')->name('inicio');;

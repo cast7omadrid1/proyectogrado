@@ -43,21 +43,19 @@ class EventospenaController extends Controller
 		//$articles = Article::orderBy('id','DESC')->paginate(6);
 
 
-
-
-		
 		$articles = Article::orderBy('id','DESC')->where('category_id', '=', 1)->paginate(6);
-
+		//dd($articles);
 	
 		$articles->each(function($articles){
 			$articles->category;
 			$articles->image;
-			
 		});
 		//dd($articles);
 
-		$comentarios = Comentarios::orderBy('id','ASC')->paginate(4);
-		
+		//$comentarios = Comentarios::orderBy('id','ASC')->paginate(10);
+		  $comentarios = Comentarios::orderBy('id','ASC')->paginate(10);
+		  //dd($comentarios);
+
 		//las relaciones no estan funcionando ok, no me trae la info de article y user
 		$comentarios->each(function($comentarios){
 			
@@ -65,8 +63,15 @@ class EventospenaController extends Controller
 			$comentarios->article;
 			
 		});
-		//dd($comentarios);
+		 //dd($comentarios);
 		
+		
+		//Comentarios::enableQueryLog();
+		//dd(Comentarios::getQueryLog());
+		//dd($comentarios->toSql());
+		/*Comentarios::listen(function($sql) {
+    		var_dump($sql);
+		});*/
 		
 		return View('eventospena')->with('articles',$articles)->with('comentarios',$comentarios);
 		//return View('eventospena')->with('articles',$articles);

@@ -164,7 +164,7 @@
             <!-- Menu de navegación web -->
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <a  href="{{ url('/admin') }}">Inicio</a>
+                <a  href="{{ url('/inicioadmin') }}">Inicio</a>
               </li>
               <li>
                 <a href="{{ url('/listausuarios') }}">Usuarios</a>

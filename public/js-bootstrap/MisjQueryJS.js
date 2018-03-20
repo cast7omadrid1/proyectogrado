@@ -27,12 +27,14 @@ $(document).ready(function(){
 /* 
 /* ------------------------------------------ */
     $(document).ready(function(){
-        $("#mostrar").on( "click", function() {
-            $('#flotante').show(); //muestro mediante id
+        
+        $("#mostrar").on( "click", function(event, article_id) {
+            console.log(article_id);
+            $('#flotante_'+ article_id).show(); //muestro mediante id
             
          });
-        $("#ocultar").on( "click", function() {
-            $('#flotante').hide(); //oculto mediante id
+        $("#ocultar").on( "click", function(event, article_id) {
+            $('#flotante_'+ article_id).hide(); //oculto mediante id
             
         });
     });
