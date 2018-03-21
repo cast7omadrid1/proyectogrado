@@ -20,13 +20,14 @@
                     @if (Auth::user()->user == 1 )
                       <a href="{{route('articles.create')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Añade una nueva imagen a nuestra galería!</a>
                     
-                    @else
-
-                      <a href="{{route('admin.articles.eventos')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Añade una nueva imagen a nuestra galería!</a>
-                    
-
                     @endif
+  
+                    <!--botón para ver imagenes de cada user-->
 
+                    @if (Auth::user()->user == 1 )
+                      <a href="{{route('imagenesusuario')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Edita tus imágenes</a>
+                    
+                    @endif
 
                     <div class="row">
                      

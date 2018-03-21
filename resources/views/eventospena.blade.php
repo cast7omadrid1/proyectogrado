@@ -50,15 +50,23 @@
                               </div>
                               
                               
-                              <!--Enlace para mostrar div oculto-->
+                              <!--Enlace para mostrar div oculto
                               <p id="mostrar"><a href="javascript:mostrar(this, {{$article->id}});">Mostrar comentarios</a></p>
                               <div id="flotante_{{$article->id}}" style="display:none;">
                                    <div id="close"><p><a href="javascript:cerrar(this, {{$article->id}});">cerrar</a></p></div>
                                    @foreach($comentarios as $comentario)
                                         {{$comentario->comentarios}}</br>
                                    @endforeach    
-                              </div>
+                              </div>-->
                               
+                              <p id="mostrar"><a href="javascript:mostrar();">Mostrar comentarios</a></p>
+                              <div id="flotante" style="display:none;">
+                                   <div id="close"><p><a href="javascript:cerrar();">cerrar</a></p></div>
+                                   @foreach($comentarios as $comentario)
+                                        {{$comentario->comentarios}}</br>
+                                   @endforeach  
+                              </div>
+
 
                               <!--La ruta hace referencia al metodo utilizado por el formulario-->
                               {{Form::open(['route'=>['eventospena.store',$article],'method'=>'PUT','files'=>true])}}

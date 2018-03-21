@@ -78,9 +78,6 @@ Route::get('/contacto', 'ContactoController@contacto')->name('contacto');
 //ruta para el contacto
 Route::get('/plantillamaster', 'PlantillaMasterController@plantillamaster');
 
-
-
-
 //ruta editar foto perfil usuario
 Route::get('/profile', 'UserController@profile')->name('user.profile');
 Route::patch('/profile', 'UserController@update_profile')->name('user.profile.update');
@@ -176,6 +173,8 @@ Route::get('/excel_articles', 'ExcelController@exportArticles')->name('admin.exc
 //ruta para mostrar la galeria en zonamultimedia
 Route::get('/zonamultimedia', 'ImagenesController@index');
 
+
+
 //filtro categorias
 Route::get('categorias/{name}',[
 
@@ -191,6 +190,11 @@ Route::get('tags/{name}',[
 	'as'   => 'search.tag'
 
 ]);
+
+
+//ruta para mostrar la galeria en zonamultimedia
+Route::get('/imagenesusuario', 'ImagenesusuarioController@index')->name('imagenesusuario');
+
 
 //envio mail contacto
 Route::post('send', ['as' => 'send', 'uses' => 'ContactoController@send'] );

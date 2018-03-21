@@ -261,4 +261,7 @@ class ArticlesController extends Controller
         return redirect()->route('admin.listaarticulos');
 
     }
+
+
+    
 }

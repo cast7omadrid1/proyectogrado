@@ -15,14 +15,14 @@ class Comentarios extends Model
     public function user(){
 
         return $this->belongsTo('App\User');
-
+        //return $this->belongsTo(User::class,'id');
     }
 
     //un comentario es de un solo articulo
     public function article(){
 
         return $this->belongsTo('App\Article');
-
+        //return $this->belongsTo(Article::class,'id');
     }
 
 

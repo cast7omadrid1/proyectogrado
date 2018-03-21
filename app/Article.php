@@ -41,12 +41,11 @@ class Article extends Model
 
     }
 
-
     //un articulo puede tener varios comentarios
-    public function comentarios(){
+    public function comentario(){
 
         return $this->hasMany('App\Comentarios');
-
+          //return $this->hasMany('Comentarios::class');
     }
 
 
@@ -56,9 +55,5 @@ class Article extends Model
         return $query->where('title','LIKE',"%$title%");
 
     }
-
-
-    
-
 
 }

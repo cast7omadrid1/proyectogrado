@@ -26,7 +26,7 @@ $(document).ready(function(){
 /*
 /* 
 /* ------------------------------------------ */
-    $(document).ready(function(){
+    /*$(document).ready(function(){
         
         $("#mostrar").on( "click", function(event, article_id) {
             console.log(article_id);
@@ -35,6 +35,20 @@ $(document).ready(function(){
          });
         $("#ocultar").on( "click", function(event, article_id) {
             $('#flotante_'+ article_id).hide(); //oculto mediante id
+            
+        });
+    });*/
+
+
+    $(document).ready(function(){
+        
+        $("#mostrar").on( "click", function() {
+            //console.log(article_id);
+            $('#flotante'+ article_id).show(); //muestro mediante id
+            
+         });
+        $("#ocultar").on( "click", function() {
+            $('#flotante'+ article_id).hide(); //oculto mediante id
             
         });
     });

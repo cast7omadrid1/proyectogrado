@@ -41,20 +41,25 @@ class EventospenaController extends Controller
 
 
 		//$articles = Article::orderBy('id','DESC')->paginate(6);
+		//$iduser = \Auth::user()->id;
 
+		\DB::connection()->enableQueryLog();
 
 		$articles = Article::orderBy('id','DESC')->where('category_id', '=', 1)->paginate(6);
 		//dd($articles);
-	
+		
+
 		$articles->each(function($articles){
 			$articles->category;
 			$articles->image;
+			//$articles->comentario;
 		});
-		//dd($articles);
+		//dd($articles->category);
 
 		//$comentarios = Comentarios::orderBy('id','ASC')->paginate(10);
 		  $comentarios = Comentarios::orderBy('id','ASC')->paginate(10);
 		  //dd($comentarios);
+
 
 		//las relaciones no estan funcionando ok, no me trae la info de article y user
 		$comentarios->each(function($comentarios){
@@ -63,9 +68,12 @@ class EventospenaController extends Controller
 			$comentarios->article;
 			
 		});
-		 //dd($comentarios);
-		
-		
+
+		$query=\DB::getQueryLog();
+		//dd($query);
+
+		//dd($comentarios);
+
 		//Comentarios::enableQueryLog();
 		//dd(Comentarios::getQueryLog());
 		//dd($comentarios->toSql());

@@ -37,10 +37,10 @@ class User extends Authenticatable
 
 
     //un user puede tener varios comentarios
-    public function comentarios(){
+    public function comentario(){
 
         return $this->hasMany('App\Comentarios');
-
+        //return $this->hasMany('Comentarios::class');
     }
 
 
@@ -50,7 +50,6 @@ class User extends Authenticatable
         return $query->where('name','LIKE',"%$name%");
 
     }
-
 
 
 }
