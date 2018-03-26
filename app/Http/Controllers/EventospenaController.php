@@ -52,9 +52,11 @@ class EventospenaController extends Controller
 		$articles->each(function($articles){
 			$articles->category;
 			$articles->image;
+			$articles->comentario;
 			//$articles->comentario;
 		});
-		//dd($articles->category);
+		
+		dd($articles);
 
 		//$comentarios = Comentarios::orderBy('id','ASC')->paginate(10);
 		  $comentarios = Comentarios::orderBy('id','ASC')->paginate(10);
@@ -64,15 +66,13 @@ class EventospenaController extends Controller
 		//las relaciones no estan funcionando ok, no me trae la info de article y user
 		$comentarios->each(function($comentarios){
 			
-			$comentarios->user;
+			//$comentarios->user;
 			$comentarios->article;
-			
+			$comentarios->user;
 		});
 
 		$query=\DB::getQueryLog();
 		//dd($query);
-
-		//dd($comentarios);
 
 		//Comentarios::enableQueryLog();
 		//dd(Comentarios::getQueryLog());

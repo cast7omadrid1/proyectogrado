@@ -44,7 +44,7 @@ class Article extends Model
     //un articulo puede tener varios comentarios
     public function comentario(){
 
-        return $this->hasMany('App\Comentarios');
+        return $this->hasMany('App\Comentarios','articulo_id','id');
           //return $this->hasMany('Comentarios::class');
     }
 

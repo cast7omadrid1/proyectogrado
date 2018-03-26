@@ -40,13 +40,21 @@
                                 <h3>{{$article->description}}</h3>
                                 
                                 <a href="">
-                                  {{$article->category->name}}
+                                  {{$article->category}}
                                 </a>
                                
                                 <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
 
                                 <i>{{$article->id}}</i>
+                                <i>{{$article->comentario}}</i>
+
+                                <div>
+                                  @foreach($comentarios as $comentario)
+                                      {{$comentario->user->name}} : {{$comentario->comentarios}}</br>
+                                  @endforeach
+
+                                </div>
                               </div>
                               
                               
@@ -59,13 +67,13 @@
                                    @endforeach    
                               </div>-->
                               
-                              <p id="mostrar"><a href="javascript:mostrar();">Mostrar comentarios</a></p>
+                              <!--<p id="mostrar"><a href="javascript:mostrar();">Mostrar comentarios</a></p>
                               <div id="flotante" style="display:none;">
                                    <div id="close"><p><a href="javascript:cerrar();">cerrar</a></p></div>
                                    @foreach($comentarios as $comentario)
-                                        {{$comentario->comentarios}}</br>
+                                       {{$comentario->user->name}} : {{$comentario->comentarios}}</br>
                                    @endforeach  
-                              </div>
+                              </div>-->
 
 
                               <!--La ruta hace referencia al metodo utilizado por el formulario-->

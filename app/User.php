@@ -39,7 +39,7 @@ class User extends Authenticatable
     //un user puede tener varios comentarios
     public function comentario(){
 
-        return $this->hasMany('App\Comentarios');
+        return $this->hasMany('App\Comentarios','usuario_id','id');
         //return $this->hasMany('Comentarios::class');
     }
 
