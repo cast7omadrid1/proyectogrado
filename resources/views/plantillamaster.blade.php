@@ -286,6 +286,8 @@
     
   <div>
 
+  <!--Para mostrar los mensajes flash-->   
+  @include('flash::message')
   
     <!--El contenido es lo que cambia-->
   @yield('contenido')

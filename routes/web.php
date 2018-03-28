@@ -191,6 +191,13 @@ Route::get('tags/{name}',[
 
 ]);
 
+/*ruta para almacenar comentario*/
+Route::put('guardarcomentarios/{id}/store',[
+
+	'uses'=>'ImagenesController@store',
+	'as' => 'imagepena.store',
+
+]);
 
 //ruta para mostrar la galeria en zonamultimedia
 Route::get('/imagenesusuario', 'ImagenesusuarioController@index')->name('imagenesusuario');

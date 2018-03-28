@@ -10,6 +10,7 @@ use Intervention\Image\Facades\ImageManager;
 use Illuminate\Database\Eloquent\Builder;
 use App\Category;
 use App\Tag;
+use App\Comentarios;
 use Carbon\Carbon;
 
 class ImagenesController extends Controller
@@ -18,28 +19,28 @@ class ImagenesController extends Controller
 
 	public function index(Request $request){
 
-		/*$images = Image::all();
-		$images=Image::Search($request->name)->orderBy("id","ASC")->paginate(6);
-		//dd($images);
-		$images->each(function($images){
-			$images->article;
-			
-		});*/
-
-
-		/*return View('zonamultimedia')->with('images',$images);*/
-
-
+		
 		$articles = Article::orderBy('id','DESC')->paginate(6);
 		
 		$articles->each(function($articles){
 			$articles->category;
 			$articles->images;
+			$articles->comentario;
 		});
 		
-		
 
-		return View('zonamultimedia')->with('articles',$articles);
+		$comentarios = Comentarios::orderBy('id','ASC')->paginate(10);
+		  //dd($comentarios);
+
+		
+		$comentarios->each(function($comentarios){
+			
+			$comentarios->article;
+			$comentarios->user;
+		});
+
+
+		return View('zonamultimedia')->with('articles',$articles)->with('comentarios',$comentarios);
 
 	}
 
@@ -47,6 +48,31 @@ class ImagenesController extends Controller
 	//para la gestión del tiempo articulos
 	public function __construct(){
 		Carbon::setLocale('es');
+	}
+
+
+	/*metodo para agregar comentarios a los articulos*/
+	public function store(Request $request,$id){
+
+
+		//creamos un nuevo objeto para comentarios
+		$comentarios = new 	Comentarios($request->all());
+		$comentarios->usuario_id = \Auth::user()->id;
+		//dd($comentarios);
+
+		
+		$articles=Article::find($id);
+		//dd($articles);
+    	
+    	$comentarios->articulo_id = $articles->id;
+    	//dd($comentarios);
+		
+		$comentarios->save();
+
+		flash('El comentario se ha creado correctamente, ve a Zona multimedia para comprobarlo ')->success();
+		
+		return redirect()->route('inicio');
+		
 	}
 
 
@@ -70,7 +96,6 @@ class ImagenesController extends Controller
 
 	}
 
-
 	public function searchTag($name){
 
 		//metodo first para obtener un objeto y no una colección
@@ -84,5 +109,10 @@ class ImagenesController extends Controller
 		
 		return View('zonamultimedia')->with('articles',$articles);
 	}
+
+
+
+
+
 
 }

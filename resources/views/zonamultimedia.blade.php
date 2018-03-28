@@ -19,15 +19,15 @@
 
                     @if (Auth::user()->user == 1 )
                       <a href="{{route('articles.create')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Añade una nueva imagen a nuestra galería!</a>
-                    
+                    @else
+                      <a href="{{route('admin.articles.eventos')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Añade una nueva imagen a nuestra galería!</a>
                     @endif
   
                     <!--botón para ver imagenes de cada user-->
 
-                    @if (Auth::user()->user == 1 )
                       <a href="{{route('imagenesusuario')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Edita tus imágenes</a>
                     
-                    @endif
+                    
 
                     <div class="row">
                      
@@ -52,9 +52,33 @@
                                   {{$article->category->name}}
                                 </a>
                                
+
+                               <!--For each para mostrar el nombre del usuario y sus comentarios-->
+                                  @foreach($article->comentario as $comentario)
+                                      <!--<a href="">{{$comentario->comentarios}}</a>-->
+                                      <ul>
+                                        <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
+                                      </ul>
+                                  @endforeach
+
+
                               <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
                               </div>    
+                            
+                              <!--La ruta hace referencia al metodo utilizado por el formulario-->
+                              {{Form::open(['route'=>['imagepena.store',$article],'method'=>'PUT','files'=>true])}}
+
+                                 <div class="form-group">
+                                  {{Form::text('comentarios',null,['class'=>'form-control','placeholder'=>'Añade tu comentario','required'])}}
+                                </div>
+                                <!--botón submnit-->
+                                <div class='form-group'>
+                                  {{Form::submit('Enviar comentario',['class'=>'btn btn-primary'])}}
+                                </div>
+                              {{Form::close()}}
+                              
+
                             </div>
                           </div>
                           @endforeach

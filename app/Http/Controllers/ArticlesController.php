@@ -202,6 +202,7 @@ class ArticlesController extends Controller
 
         //pluck sustituye a lists
         $categories = Category::orderBy('name','DESC')->pluck('name','id');
+        
         $tags = Tag::orderBy('name','DESC')->pluck('name','id');
         
         //obtenemos los tag_id en forma de array para mostrar los tags correctos de cada articulo a editar

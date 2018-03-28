@@ -39,22 +39,21 @@
                               <div class="caption">
                                 <h3>{{$article->description}}</h3>
                                 
-                                <a href="">
-                                  {{$article->category}}
+                                <!--Nombre de la categoría-->
+                                <a href="{{route('search.category', $article->category->name)}}">
+                                  {{$article->category->name}}
                                 </a>
-                               
+                                  <!--For each para mostrar el nombre del usuario y sus comentarios-->
+                                  @foreach($article->comentario as $comentario)
+                                      <!--<a href="">{{$comentario->comentarios}}</a>-->
+                                      <ul>
+                                        <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
+                                      </ul>
+                                  @endforeach
+                                
                                 <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
 
-                                <i>{{$article->id}}</i>
-                                <i>{{$article->comentario}}</i>
-
-                                <div>
-                                  @foreach($comentarios as $comentario)
-                                      {{$comentario->user->name}} : {{$comentario->comentarios}}</br>
-                                  @endforeach
-
-                                </div>
                               </div>
                               
                               
@@ -102,7 +101,7 @@
                    
                     </div>
 
-
+                  
 					<!--redes sociales-->
 					  <div class="col-xs-6 col-md-4">
 					  <h2 class="tituloseccion tituloredes" onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Nuestras redes sociales</h2>
@@ -110,7 +109,7 @@
 
 					  	<a class="twitter-timeline" data-lang="es" data-height="800" data-theme="light"  href="https://twitter.com/pmadridzaragoza?ref_src=twsrc%5Etfw">Tweets by pmadridzaragoza</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					  </div>
-					</div>
+					
 
 					
 
