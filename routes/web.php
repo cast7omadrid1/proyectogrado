@@ -141,6 +141,23 @@ Route::get('editarticle/{id}/edit',[
 
 
 /*ruta para editar un articulo*/
+Route::get('editcategoryone/{id}/editcategoryone',[
+
+	'uses'=>'ArticlesController@editcategoryone',
+	'as' => 'admin.articles.editcategoryone',
+
+]);
+
+/*ruta para editar un articulo*/
+Route::put('updateifuser/{id}/updateifuser',[
+
+	'uses'=>'ArticlesController@updateifuser',
+	'as' => 'admin.articles.updateifuser',
+
+]);
+
+
+/*ruta para editar un articulo*/
 Route::put('updatearticles/{id}/update',[
 
 	'uses'=>'ArticlesController@update',

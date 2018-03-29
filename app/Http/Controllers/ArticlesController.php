@@ -38,17 +38,12 @@ class ArticlesController extends Controller
             //user hace referencia a la relacion en el modelo
             $articles->category;
             $articles->user;
+            $articles->tags;
             //$articles->image;
 
             //dd($articles);
         });
 
-
-        /*$images = Image::orderBy('id')->paginate(5);
-        $images->each(function($images){
-            $images->article;
-            
-        });*/
 
 
         return View('admin.listaarticulos')->with('articles',$articles);
@@ -117,29 +112,7 @@ class ArticlesController extends Controller
             //dd($path);
         }
 
-        /*pruebas redimensionamiento de imagenes*/
-
-
-    /*if($request->file('image'))
-        {
-  
-            $image = $request->file('image');
-            $filename  = 'socceradicts_' . time() .'.'.$image->getClientOriginalExtension();
-            $path = public_path() . '/images/articulosantes/';
-
-            $thumb_img=Image::make($image->getRealPath())->resize(200, 200);
-                
-            $thumb_img->save($path.'/'.$filename,80);
-
-               
-            $path=public_path() . '/images/articulos/';
-
-
-            $file->move($path,$filename);
-
-
-        }*/
-
+        
         //creamos objeto para obtener toda la información de los articulos
         $article = new Article($request->all());
         //almacenamos el id del usuario
@@ -176,16 +149,6 @@ class ArticlesController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * metodo para la edicción de articulos
@@ -193,6 +156,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function edit($id)
     {
         
@@ -218,6 +182,30 @@ class ArticlesController extends Controller
     }
 
 
+    public function editcategoryone($id)
+    {
+        
+        $article = Article::find($id);
+        $article->category;
+        
+
+        //pluck sustituye a lists
+        $categories = Category::orderBy('name','ASC')->where('id', '!=', 1)->pluck('name','id');
+        
+        $tags = Tag::orderBy('name','DESC')->pluck('name','id');
+        
+        //obtenemos los tag_id en forma de array para mostrar los tags correctos de cada articulo a editar
+        $mis_tags=$article->tags->pluck('id')->ToArray();
+        //dd($mis_tags);
+
+
+        //devolvemos la vista para la edición de los articulos
+        return view('admin.articles.edit')
+        ->with('article',$article)
+        ->with('categories',$categories)
+        ->with('tags',$tags)
+        ->with('mis_tags',$mis_tags);
+    }
     
 
     /**
@@ -245,6 +233,27 @@ class ArticlesController extends Controller
 
     }
 
+    public function updateifuser(Request $request, $id)
+    {
+        
+        //obtenemos los articulos según su id
+        $articles = Article::find($id);
+        //guardamos cambios
+        $articles->fill($request->all());
+        $articles->save();
+
+        //sincronizamos la tabla pivote
+        $articles->tags()->sync($request->tags);
+
+        flash('El articulo '.$articles->title.' se ha actualizado correctamente, compruebalo en la Zona multimedia')->important();
+
+        
+        return redirect()->route('inicio');
+    }
+    
+
+
+
     /**
      * metodo para eliminar un articulo
      *
@@ -262,7 +271,6 @@ class ArticlesController extends Controller
         return redirect()->route('admin.listaarticulos');
 
     }
-
-
     
 }
+

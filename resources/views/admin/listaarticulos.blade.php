@@ -26,6 +26,7 @@
 					<th>Titulo</th>
 					<th>Description</th>
 					<th>Categoria</th>
+					<th>Tags</th>
 					<th>Usuario</th>
 					<th>Acción</th>
 					<!--<th>Nombre imagen</th>
@@ -41,6 +42,10 @@
 								<td>{{$article->title}}</td>		
 								<td>{{$article->description}}</td>
 								<td>{{$article->category->name}}</td>
+								
+								@foreach($article->tags as $tags)
+									<td>{{$tags->name}}</td>
+								@endforeach
 								<!--obtener nombre usuario-->
 								<td>{{$article->user->name}}</td>
 								
@@ -53,6 +58,7 @@
 								
 								
 								<td>
+									
 									<!--Botones para editar y eliminar articulos-->
 									<a href="{{route('admin.articles.edit', $article->id)}}" class="btn btn-primary">Editar</a>
 									<a href="{{route('admin.articles.destroy',$article->id)}}" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este articulo?')">Eliminar</a>
