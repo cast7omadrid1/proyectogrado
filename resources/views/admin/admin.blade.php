@@ -179,7 +179,7 @@
                 <a href="{{url('/listatags')}}">Tags</a>
               </li>
               <li>
-              	<a href="#">Vacio</a>
+              	<a href="{{url('/listacomentarios')}}">Comentarios</a>
               </li>
               <li>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

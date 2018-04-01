@@ -20,11 +20,9 @@
 	{{Form::close()}}
 
 <div class="panel sizetable">
-
- 	<div class="panel-body">
-
+	<div class="panel-body">
 		<div class="table-responsive">
-			<table class="table table-striped" >
+			<table class="table table-striped table-hover" >
 				<thead>
 					<th>ID</th>
 					<th>Titulo</th>
@@ -41,9 +39,15 @@
 						<td>{{$article->title}}</td>		
 						<td>{{$article->description}}</td>
 						<td>{{$article->category->name}}</td>
-						@foreach($article->tags as $tags)
-							<td>{{$tags->name}}</td>
-						@endforeach		
+						
+
+						<td>
+							@foreach($article->tags as $tags)
+								<ul>
+								    <li>{{$tags->name}}</li>
+								 </ul> 
+							@endforeach	
+						</td>	
 								
 						<!--obtener nombre usuario-->
 						<td>{{$article->user->name}}</td>
@@ -61,19 +65,14 @@
 			</table>
 		</div>
 
+		<!--Mostramos botones para cambiar en la lista de articulos -->
+		{!!$articles->render()!!}
 
-		
-			<!--Mostramos botones para cambiar en la lista de articulos -->
-			{!!$articles->render()!!}
+		<!--<hr><a href="{{route('articles.create')}}" class="btn btn-primary">Añadir imagen</a>-->
 
-			<!--<hr><a href="{{route('articles.create')}}" class="btn btn-primary">Añadir imagen</a>-->
-
-			<hr><a href="{{route('articles.create')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Añadir imagen</a>
+		<hr><a href="{{route('articles.create')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Añadir imagen</a>
 			                    
-			<a href="{{route('admin.excel_articles')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Exportar excel</a>
-
-
-
+		<a href="{{route('admin.excel_articles')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Exportar excel</a>
 	</div>
 </div>
 
