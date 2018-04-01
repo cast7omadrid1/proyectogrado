@@ -17,7 +17,7 @@
                         @if (Auth::check())
                         <!--Si user == 1 vamos al panel de admin-->
                             @if (Auth::user()->user == 1)
-                                <a href="{{url('admin')}}">Panel de Administrador </a> ||
+                                <a href="{{url('inicioadmin')}}">Panel de Administrador </a> ||
                             @endif
                             <a href="{{ url('/inicio') }}">Inicio</a>
                         

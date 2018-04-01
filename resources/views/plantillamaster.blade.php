@@ -225,7 +225,7 @@
                                             Home
                                         </a>
 
-                                         <a href="{{ url('/admin') }}">
+                                         <a href="{{url('inicioadmin')}}">
                                             Panel admin
                                           </a>
 

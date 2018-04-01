@@ -49,7 +49,8 @@ h2:hover{
 
 	margin-left: 100px;
 	width: 90%;
-	/*overflow-y: hidden;*//*en teoria es para poder verlo en vertical*/
+	padding-top: 150px;
+	
 }
 
 /*color boton panel admin*/
