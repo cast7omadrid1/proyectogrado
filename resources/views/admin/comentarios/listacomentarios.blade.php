@@ -31,14 +31,13 @@
 							<tr>
 								<td>{{$comentario->id}}</td>
 								<td>{{$comentario->comentarios}}</td>
-
-
+								<td>{{$comentario->article->title}}</td>
+								<td>{{$comentario->user->name}}</td>
 								<td>
-									{{$comentario->article->title}}
-
-									
+									<!--Botones para editar y eliminar articulos-->
+									<a href="" class="btn btn-primary">Editar</a>
+									<a href="" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este articulo?')">Eliminar</a>		
 								</td>
-
 							</tr>
 						@endforeach
 					</tbody>
