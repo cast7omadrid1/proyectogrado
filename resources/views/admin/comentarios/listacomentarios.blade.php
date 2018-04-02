@@ -35,8 +35,8 @@
 								<td>{{$comentario->user->name}}</td>
 								<td>
 									<!--Botones para editar y eliminar articulos-->
-									<a href="" class="btn btn-primary">Editar</a>
-									<a href="" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este articulo?')">Eliminar</a>		
+									<a href="{{route('admin.comentarios.edit', $comentario->id)}}" class="btn btn-primary">Editar</a>
+									<a href="{{route('admin.comentarios.destroy',$comentario->id)}}" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este comentario?')">Eliminar</a>		
 								</td>
 							</tr>
 						@endforeach

@@ -277,7 +277,7 @@ Route::resource('tag','TagsController');
 Route::get('/listatags','TagsController@index')->name('tags.listatags');
 
 
-//ruta para eliminar un articulo
+//ruta para eliminar un tags
 Route::get('eliminartags/{id}/destroy',[
 
 	'uses'=>'TagsController@destroy',
@@ -286,7 +286,7 @@ Route::get('eliminartags/{id}/destroy',[
 ]);
 
 
-/*ruta para editar un usuario*/
+/*ruta para editar un tags*/
 Route::get('editartags/{id}/edit',[
 
 	'uses'=>'TagsController@edit',
@@ -294,7 +294,7 @@ Route::get('editartags/{id}/edit',[
 
 ]);
 
-/*ruta para editar un articulo*/
+/*ruta para editar un tags*/
 Route::put('updatetags/{id}/update',[
 
 	'uses'=>'TagsController@update',
@@ -311,3 +311,28 @@ Route::get('/excel_tags', 'ExcelController@exportTags')->name('admin.excel_tags'
 
 //ruta para el listado de articulos en panel admin
 Route::get('/listacomentarios','ListacomentariosController@index')->name('comentarios.listacomentarios');
+
+
+/*ruta para editar un comentario*/
+Route::get('editarcomentario/{id}/edit',[
+
+	'uses'=>'ListacomentariosController@edit',
+	'as' => 'admin.comentarios.edit',
+
+]);
+
+/*ruta para editar un comentario*/
+Route::put('updatecomentarios/{id}/update',[
+
+	'uses'=>'ListacomentariosController@update',
+	'as' => 'admin.comentarios.update',
+
+]);
+
+//ruta para eliminar un comentarios
+Route::get('eliminarcomentarios/{id}/destroy',[
+
+	'uses'=>'ListacomentariosController@destroy',
+	'as' => 'admin.comentarios.destroy'
+
+]);

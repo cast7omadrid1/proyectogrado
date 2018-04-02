@@ -74,7 +74,9 @@ class ListacomentariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comentarios = Comentarios::find($id);
+
+        return View('admin.comentarios.edit')->with('comentarios',$comentarios);
     }
 
     /**
@@ -86,7 +88,15 @@ class ListacomentariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comentarios = Comentarios::find($id);
+
+        $comentarios->fill($request->all());
+        $comentarios->save();
+
+        flash('El comentario '.$comentarios->comentarios.' se ha actualizado correctamente')->important();
+
+        return redirect()->route('comentarios.listacomentarios');
+
     }
 
     /**
@@ -97,6 +107,13 @@ class ListacomentariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+     
+        $comentarios = Comentarios::find($id);
+        $comentarios->delete();
+
+
+         flash('El comentario '.$comentarios->comentarios.' se ha eliminado correctamente')->error()->important();
+
+          return redirect()->route('comentarios.listacomentarios');
     }
 }
