@@ -18,6 +18,8 @@ class ContactoController extends Controller
 
 public function send(Request $request)
    {
+
+      set_time_limit(0);
        //guarda el valor de los campos enviados desde el form en un array
        $data = $request->all();
  	
@@ -39,6 +41,9 @@ public function send(Request $request)
            $message->to($fromEmail,$fromName);
  
        });
+
+      
+
        return view('success');//retornamos a la vista success
    }
 
