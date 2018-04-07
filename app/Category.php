@@ -23,6 +23,8 @@ class Category extends Model
    	return $query->where('name','=',$name);
    }
 
+   
+
 
    public function scopeSearch($query, $name){
 

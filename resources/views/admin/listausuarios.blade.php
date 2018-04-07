@@ -51,7 +51,7 @@
 									<td>
 										<!--Botones para editar y eliminar usuarios-->
 										<a href="{{route('admin.edit', $user->id)}}" class="btn btn-primary">Editar</a>
-										<a href="{{route('admin.listausuarios.destroy',$user->id)}}" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este usuario?')">Eliminar</a>
+										<a href="{{route('admin.listausuarios.destroy',$user)}}" class="btn btn-success" onclick="return confirm('¿Estas seguro de eliminar este usuario?')">Eliminar</a>
 										
 									</td>
 							</tr>

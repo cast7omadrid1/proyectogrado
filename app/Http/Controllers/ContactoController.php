@@ -43,7 +43,9 @@ public function send(Request $request)
        });
 
       
+       
 
+      
        return view('success');//retornamos a la vista success
    }
 

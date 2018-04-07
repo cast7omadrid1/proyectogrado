@@ -8,7 +8,12 @@
 
   <!-- Basic -->
   <title>Soccer adicts - @yield('titulo')</title>
-  <link rel="shortcut icon" href="images/icons/fav_ico.ico"></link>
+  
+  
+
+  <link rel="shortcut icon" href="{{ URL::asset('images/icons/fav_ico.ico') }}"></link>
+
+
   <!-- Define Charset -->
   <meta charset="utf-8">
 
@@ -19,63 +24,44 @@
   <meta name="description" content="Margo - Responsive HTML5 Template">
   <meta name="author" content="GrayGrids">
 
-  <!-- Bootstrap CSS  
-  <link rel="stylesheet" href="asset/css/bootstrap.min.css" type="text/css" media="screen">-->
+ 
 
   <link  rel = "stylesheet"  href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
-  <!-- Revolution Slider -->
-  <link rel="stylesheet" href="css-bootstrap/settings.css" type="text/css" media="screen">
+  <!-- Revolution Slider-->
+   <link rel="stylesheet" href="{{ URL::asset('css-bootstrap/settings.css') }}" type="text/css" media="screen">
 
-  <!-- Font Awesome CSS -->
-  <!--<link rel="stylesheet" href="css-bootstrap/font-awesome.min.css" type="text/css" media="screen">-->
 
-  <!-- Slicknav -->
-  <link rel="stylesheet" type="text/css" href="css-bootstrap/slicknav.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('css-bootstrap/slicknav.css') }}" media="screen">
 
-  <!-- Margo CSS Styles  -->
-  <link rel="stylesheet" type="text/css" href="css-bootstrap/style.css" media="screen">
-  
-  <!-- Responsive CSS Styles  -->
-  <link rel="stylesheet" type="text/css" href="css-bootstrap/responsive.css" media="screen">
-
-  <!-- Css3 Transitions Styles  -->
-  <link rel="stylesheet" type="text/css" href="css-bootstrap/animate.css" media="screen">
-
-  <!-- Color Defult -->
-  <link rel="stylesheet" type="text/css" href="css-bootstrap/colors/blue.css" media="screen" />
-  
   <!--Fuentes-->
- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css" media="screen">
+ <link rel="stylesheet" href="{{ URL::asset('font-awesome/css/font-awesome.min.css') }}" type="text/css" media="screen">
 
-  <!-- estilos propios  -->
-  <link rel="stylesheet" type="text/css" href="css/estilospropios.css" media="screen">
+ <!-- Margo CSS Styles  -->
+ <link rel="stylesheet" type="text/css" href="{{ URL::asset('css-bootstrap/style.css') }}" media="screen">
 
-  <!-- Margo JS  -->
+
+<!-- Responsive CSS Styles  -->
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css-bootstrap/responsive.css') }}" media="screen">
+
+
+<!-- Css3 Transitions Styles  -->
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css-bootstrap/animate.css') }}" media="screen">
+
+<!-- Color Defult -->
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css-bootstrap/colors/blue.css') }}" media="screen" />
+
+<!-- estilos propios  -->
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/estilospropios.css') }}" media="screen">
+
+
+<!-- estilos propios 
+<link rel="stylesheet" type="text/css" href="css/estilospropios.css" media="screen"> -->
+
+ 
   
   
-
-  <script type="text/javascript" src="js-bootstrap/jquery-2.1.4.min.js"></script>
-
-  <script type="text/javascript" src="js-bootstrap/jquery.migrate.js"></script>
-  <script type="text/javascript" src="js-bootstrap/modernizrr.js"></script>
-  <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.fitvids.js"></script>
-  <script type="text/javascript" src="js-bootstrap/owl.carousel.min.js"></script>
-  <script type="text/javascript" src="js-bootstrap/nivo-lightbox.min.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.isotope.min.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.appear.js"></script>
-  <script type="text/javascript" src="js-bootstrap/count-to.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.textillate.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.lettering.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.easypiechart.min.js"></script>
-  <script type="text/javascript" src="js-bootstrap/smooth-scroll.js"></script>
-  <script type="text/javascript" src="js-bootstrap/skrollr.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.parallax.js"></script>
-  <script type="text/javascript" src="js-bootstrap/mediaelement-and-player.js"></script>
-  <script type="text/javascript" src="js-bootstrap/jquery.slicknav.js"></script> 
-  <!--MisJquery-->
-  <script type="text/javascript" src="js-bootstrap/MisjQueryJS.js"></script>
+  
 
 
  
@@ -160,7 +146,9 @@
             </button>
             <!-- End Toggle Nav Link For Mobiles -->
             <a class="navbar-brand" href="{{ url('/inicio') }}">
-              <img alt="" src="images/captura3.PNG">
+              
+              <img alt="" src="{{ URL::asset('images/captura3.PNG') }}">
+              
             </a>
           </div>
           <div class="navbar-collapse collapse"></div>
@@ -254,7 +242,7 @@
           </div>
         </div>
 
-        <!-- Menu para moviles -->
+        <!-- Menu para moviles--> 
         <ul class="wpb-mobile-menu">
           <li>
                 <a href="{{ url('/inicio') }}">Inicio</a>
@@ -477,18 +465,35 @@
   </div>-->
 
 
-  <script type="text/javascript" src="js/script.js"></script>
+  <!--<script type="text/javascript" src="js/script.js"></script>-->
 
-
-  <!-- Magnific Popup core CSS file -->
-<link rel="stylesheet" href="magnific-popup/magnific-popup.css">
 
 <!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<!-- Magnific Popup core JS file -->
-<script src="magnific-popup/jquery.magnific-popup.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+  
+  <script type="text/javascript" src="js-bootstrap/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.isotope.min.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.appear.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.textillate.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.lettering.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.easypiechart.min.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.slicknav.js"></script> 
+  <!--MisJquery-->
+  <script type="text/javascript" src="js-bootstrap/MisjQueryJS.js"></script>
 
+  <script type="text/javascript" src="js-bootstrap/jquery.migrate.js"></script>
+  <script type="text/javascript" src="js-bootstrap/modernizrr.js"></script>
+  <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js-bootstrap/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="js-bootstrap/nivo-lightbox.min.js"></script>
+  <script type="text/javascript" src="js-bootstrap/count-to.js"></script>
+  <script type="text/javascript" src="js-bootstrap/smooth-scroll.js"></script>
+  <script type="text/javascript" src="js-bootstrap/skrollr.js"></script>
+  <script type="text/javascript" src="js-bootstrap/jquery.parallax.js"></script>
+  <script type="text/javascript" src="js-bootstrap/mediaelement-and-player.js"></script>
+  
 
  <!--Script para la eliminacion de los mensajes de alerta en 3 segundos-->
   <script>

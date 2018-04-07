@@ -10,6 +10,8 @@
           @if (Auth::user()->user == 0 || Auth::user()->user == 1)
                     
                     
+
+
                     <!--Titulo de la galería de imagenes-->
                     <div class="col-xs-12">
                       <h2 class="tituloseccion " onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Galeria de imágenes</h2>
@@ -169,10 +171,10 @@
 
                   </div>
                   
+
           
           @endif
                 
           @endif
 
 @endsection
-

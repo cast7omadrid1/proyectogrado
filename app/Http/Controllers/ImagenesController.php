@@ -17,7 +17,7 @@ class ImagenesController extends Controller
 {
     
 
-	public function index(Request $request){
+	public function index(){
 
 		
 		$articles = Article::orderBy('id','DESC')->paginate(6);
@@ -40,7 +40,14 @@ class ImagenesController extends Controller
 		});
 
 
-		return View('zonamultimedia')->with('articles',$articles)->with('comentarios',$comentarios);
+		$category=Category::orderBy('name','ASC')->get();         
+
+		$tags=Tag::orderBy('name','ASC')->get();
+
+
+		//dd($category);
+
+		return View('zonamultimedia')->with('articles',$articles)->with('comentarios',$comentarios)->with('category',$category)->with('tag',$tags);
 
 	}
 
