@@ -16,7 +16,7 @@
 	font-family: 'Sans-Serif', sans-serif;
 	font-size: 24px;
 	color:#00D2A8; /*verde principal*/
-	padding-left: 50px;
+	padding-left: 150px;
 	/*text-decoration: underline;*/
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -27,9 +27,9 @@
 /*Estilo para titulo redes sociales*/
 .tituloredes{
 	
-	padding-bottom: 10px;
-	
-	
+	padding-bottom: 30px;
+	padding-left: 30px;
+
 }
 
 /*Para subrayar los titulos cuando pasamos por encima*/
@@ -73,20 +73,34 @@ h2:hover{
 /*	 03 - Estilos para galeria de imagenes
 /*------------------------------------------*/
 
+.row{
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
 
 /*pading div galeria imagenes*/
 .leftimage{
 	padding-left: 50px;
+	padding-right: 50px;
 }
 /*margen y color para boton galeria imagenes */
 .paddingboton{
-	margin-left: 50px;
+	margin-left: 200px;
 	margin-bottom: 50px;
 	background-color: #00D2A8;
 }
+
+
+.paddingeditboton{
+	margin-left: 10px;
+	margin-bottom: 50px;
+	background-color: #00D2A8;
+}
+
 /*pading para category y tags*/
 .rightpanel{
-	padding-right: 50px;
+	padding-right: 100px;
 }
 
 /*cambiar color badge*/
@@ -106,43 +120,11 @@ h2:hover{
 .label-color{
 	background-color: #3636FF;
 }
-}
-/*media querys
-@media (min-width: 1920px){
-	/*tamaño imagenes en galeria
-	.sizeimage{
-		width: 750px;
-		height: 300px;
-	}
-	
-}*/
 
-/*
-@media (max-width: 1920px){
-	/*tamaño imagenes en galeria
-	.sizeimage{
-		width: 750px;
-		height: 300px;
-	}
-	
-}
-	
-@media (min-width: 1200px) {
 
-	/*tamaño imagenes en galeria
-	.sizeimage{
-		width: 650px;
-		height: 250px;
-	}
-}
 
-@media (min-width: 991px) {
-	/*tamaño imagenes en galeria
-	.sizeimage{
-		width: 750px;
-		height: 300px;
-	}
 
-}*/
+
+
 
 

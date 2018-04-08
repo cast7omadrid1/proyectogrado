@@ -10,8 +10,11 @@
           @if (Auth::user()->user == 0 || Auth::user()->user == 1)
                     
                     
+                    
+                    
+                    
 
-
+                    <div class="row ">
                     <!--Titulo de la galería de imagenes-->
                     <div class="col-xs-12">
                       <h2 class="tituloseccion " onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Galeria de imágenes</h2>
@@ -22,22 +25,14 @@
                     @if (Auth::user()->user == 1 )
                       <a href="{{route('articles.create')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Añade una nueva imagen a nuestra galería!</a>
                     @else
-                      <a href="{{route('admin.articles.eventos')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Añade una nueva imagen a nuestra galería!</a>
+                      <a href="{{route('admin.articles.eventos')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary">Añade una nueva imagen a nuestra galería!</a>
                     @endif
   
                     <!--botón para ver imagenes de cada user-->
 
-                      <a href="{{route('imagenesusuario')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingboton">Edita tus imágenes</a>
-                    
-                    
-
-                    <div class="row">
-                     
-
-
-                    <div class="col-md-8">
-                        
-                        <div class="row">
+                      <a href="{{route('imagenesusuario')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingeditboton">Edita tus imágenes</a>
+                      <div class="col-md-8 ">
+                        <div class="row ">
                           
                           @foreach($articles as $article)
                           <div class="col-md-6 leftimage ">
@@ -89,11 +84,11 @@
 
                       <!--Render para pasar imagenes-->
                       <div class="leftimage">
+
                         {!!$articles->render()!!}
                       </div>
                    
                     </div>
-
 
 
                   <!--Partial donde mostramos las categorias y los tags-->
@@ -113,17 +108,14 @@
          	@else
 
           <!--Si el user no esta logado-->
-        
+                    
+                    <div class="row">
+
                     <!--Titulo de la galería de imagenes-->
                     <div class="col-xs-12">
                       <h2 class="tituloseccion " onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Galeria de imágenes</h2>
                     </div>
-                    
-                    
-                    <div class="row">
                      
-
-
                     <div class="col-md-8">
                         
                         <div class="row">
