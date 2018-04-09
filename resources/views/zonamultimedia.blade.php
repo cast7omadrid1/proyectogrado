@@ -31,6 +31,7 @@
                     <!--botón para ver imagenes de cada user-->
 
                       <a href="{{route('imagenesusuario')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary paddingeditboton">Edita tus imágenes</a>
+                     
                       <div class="col-md-8 ">
                         <div class="row ">
                           
@@ -50,13 +51,17 @@
                                 </a>
                                
 
-                               <!--For each para mostrar el nombre del usuario y sus comentarios-->
-                                  @foreach($article->comentario as $comentario)
-                                      <!--<a href="">{{$comentario->comentarios}}</a>-->
+                               <p id='mostrar'><button onclick="mostrar(this, {{$article->id}})">Mostrar comentarios</button></p>
+
+
+                                  <div id="flotante_{{$article->id}}" style="display:none;">
+                                    <div id="close"><p><a href="javascript:cerrar(this, {{$article->id}});">Cerrar</a></p></div>
+                                    @foreach($article->comentario as $comentario)
                                       <ul>
                                         <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
                                       </ul>
-                                  @endforeach
+                                    @endforeach  
+                                  </div>
 
 
                               <!--Mostramos hace cuanto se ha creado el ultimo articulo-->

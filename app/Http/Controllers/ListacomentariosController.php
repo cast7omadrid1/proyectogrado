@@ -15,12 +15,14 @@ class ListacomentariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
         //usamos el metodo Search para el buscador de comentarios
-        $comentarios=Comentarios::orderBy("id","ASC")->paginate(5);
-        
+        //$comentarios=Comentarios::Search($request->comentarios)->orderBy("id","DESC")->paginate(5);
+
+        $comentarios=Comentarios::Search($request->comentarios)->orderBy('id','DESC')->paginate(5);
+
         /*traemos las relaciones con articulo y user*/
         $comentarios->each(function($comentarios){
             

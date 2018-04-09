@@ -14,11 +14,6 @@
 <!--Redes Sociales-->
 <section>
 	
-
-
-
-  
-
 				<div class="row">
         <div class="col-xs-12 col-sm-6 col-md-8">
           <h2 class="tituloseccion" onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Nuestros eventos ¡Visitanos!</h2>
@@ -45,13 +40,35 @@
                                 <a href="{{route('search.category', $article->category->name)}}">
                                   {{$article->category->name}}
                                 </a>
-                                  <!--For each para mostrar el nombre del usuario y sus comentarios-->
-                                  @foreach($article->comentario as $comentario)
-                                      <!--<a href="">{{$comentario->comentarios}}</a>-->
+                                  
+
+                                  <!--For each para mostrar el nombre del usuario y sus comentarios
+                                  @foreach($article->comentario as $comentario)-->
+                                      <!--<a href="">{{$comentario->comentarios}}</a>
                                       <ul>
                                         <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
                                       </ul>
-                                  @endforeach
+                                  @endforeach-->
+
+
+                                 <!-- <p id='mostrar'><a href="javascript:mostrar(this, {{$article->id}})">Mostrar comentarios</a></p>-->
+
+
+                                  <p id='mostrar'><button onclick="mostrar(this, {{$article->id}})">Mostrar comentarios</button></p>
+
+
+                                  <div id="flotante_{{$article->id}}" style="display:none;">
+                                    <div id="close"><p><a href="javascript:cerrar(this, {{$article->id}});">Cerrar</a></p></div>
+                                    @foreach($article->comentario as $comentario)
+                                      <ul>
+                                        <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
+                                      </ul>
+                                    @endforeach  
+                                  </div>
+
+
+
+
                                 
                                 <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
@@ -76,6 +93,8 @@
                                    @endforeach  
                               </div>-->
 
+                              
+                            
 
                               <!--La ruta hace referencia al metodo utilizado por el formulario-->
                               {{Form::open(['route'=>['eventospena.store',$article],'method'=>'PUT','files'=>true])}}

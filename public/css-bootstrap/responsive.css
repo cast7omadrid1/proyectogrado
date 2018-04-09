@@ -1,4 +1,5 @@
 @media (min-width: 1920px){
+	
 	.support-main .su-content-wrap{
 		padding: 130px 60px;
 	}
@@ -8,7 +9,7 @@
 		height: 300px;
 	}
 
-	}
+}
 	
 	
 @media (max-width: 1200px) {	

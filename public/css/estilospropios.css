@@ -1,9 +1,4 @@
 /*estilos propios*/
-
-
-
-
-
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700italic,800italic);
 @import url(https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
@@ -74,15 +69,16 @@ h2:hover{
 /*------------------------------------------*/
 
 .row{
-	padding-left: 80px;
-	padding-right: 80px;
+	
+	padding-left: 60px;
+	padding-right: 60px;
 }
 
 
 /*pading div galeria imagenes*/
 .leftimage{
-	padding-left: 50px;
-	padding-right: 50px;
+	padding-left: 30px;
+	padding-right: 10px;
 }
 /*margen y color para boton galeria imagenes */
 .paddingboton{
@@ -90,7 +86,6 @@ h2:hover{
 	margin-bottom: 50px;
 	background-color: #00D2A8;
 }
-
 
 .paddingeditboton{
 	margin-left: 10px;
@@ -120,9 +115,6 @@ h2:hover{
 .label-color{
 	background-color: #3636FF;
 }
-
-
-
 
 
 

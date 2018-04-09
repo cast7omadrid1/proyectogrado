@@ -16,8 +16,9 @@ $(document).ready(function(){
         if(!cambio){
             $('.nav a:first').addClass("active");
         }
-    });
-  
+        
+}); 
+
 
 
 /* ------------------------------------------ */
@@ -40,15 +41,19 @@ $(document).ready(function(){
     });*/
 
 
-    $(document).ready(function(){
-        
-        $("#mostrar").on( "click", function() {
-            //console.log(article_id);
-            $('#flotante'+ article_id).show(); //muestro mediante id
-            
-         });
-        $("#ocultar").on( "click", function() {
-            $('#flotante'+ article_id).hide(); //oculto mediante id
-            
-        });
-    });
+
+    function mostrar(e, id){
+
+        document.getElementById('flotante_'+id).style.display='block';
+
+    }
+
+    function cerrar(e, id){
+
+        document.getElementById('flotante_'+id).style.display='none';
+
+    }
+
+
+
+

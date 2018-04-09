@@ -7,10 +7,10 @@
 	 	  <h2 class="tituloseccion tituloeventos" onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Listado comentarios</h2>
 	</div>
 
-	<!--Buscador de articulos-->
-	{{Form::open(['route' => 'articles.index','method' => 'GET', 'class' => 'navbar-form pull-right'])}}
+	<!--Buscador de comentarios-->
+	{{Form::open(['route' => 'comentarios.index','method' => 'GET', 'class' => 'navbar-form pull-right'])}}
 	<div class="input-group">
-		{{Form::text('title',null,['class'=>'form-control','placeholder'=>'Buscar comentarios','aria-describedby'=>'search'])}}
+		{{Form::text('comentarios',null,['class'=>'form-control','placeholder'=>'Buscar comentarios','aria-describedby'=>'search'])}}
 		<span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
 	</div>
 	{{Form::close()}}
@@ -46,7 +46,8 @@
 		
 			<!--Mostramos botones para cambiar en la lista de comentarios -->
 			{!!$comentarios->render()!!}
-
+			</br>
+			<a href="{{route('admin.excel_comentarios')}}" onmouseover="javascript:this.style.backgroundColor='#19F0DB';" onmouseout="javascript:this.style.backgroundColor='#00D2A8';" class="btn btn-primary botonpaneladmin">Exportar excel</a>
 		</div>
 	</div>
 	

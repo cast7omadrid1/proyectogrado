@@ -8,6 +8,7 @@ use App\User;
 use App\Article;
 use App\Tag;
 use App\Category;
+use App\Comentarios;
 
 class ExcelController extends Controller
 {
@@ -132,6 +133,35 @@ class ExcelController extends Controller
 
 
 		    	$sheet->fromArray($categories);
+ 
+			});
+ 
+		})->export('xlsx');
+		
+	}
+
+
+	public function exportcomentarios(Request $request){
+
+	   	Excel::create('TablaComentarios', function($excel) {
+	 
+	    	$comentarios = Comentarios::all();
+	 
+		    $excel->sheet('TablaComentarios', function($sheet) use($comentarios) {
+	 
+		    	
+		    	/*$sheet->row(1, [
+    				'ID', 'Nombre', 'Email', 'Fecha de Creación', 'Fecha de Actualización', 'User','Avatar'
+				]);*/
+
+		    	foreach($comentarios as $index => $comentario) {
+    				$sheet->row($index+2, [
+        				$comentario->id, $comentario->comentarios, $comentario->articulo_id, $comentario->usuario_id, $comentario->created_at, $comentario->updated_at
+    				]); 
+				}
+
+
+		    	$sheet->fromArray($comentarios);
  
 			});
  
