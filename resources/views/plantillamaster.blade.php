@@ -24,7 +24,7 @@
   <meta name="description" content="Margo - Responsive HTML5 Template">
   <meta name="author" content="GrayGrids">
 
- 
+
 
   <link  rel = "stylesheet"  href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
@@ -55,74 +55,26 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/estilospropios.css') }}" media="screen">
 
 
-<!-- estilos propios 
-<link rel="stylesheet" type="text/css" href="css/estilospropios.css" media="screen"> -->
-
- 
-  <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
 
 </head>
 
 <body>
 
-  <!-- Full Body Container -->
+
+  <!-- Full Body Container-->
   <div id="container">
 
-    <!-- Start Header Section -->
+    <!-- Start Header Section-->
     <header class="clearfix">
-      <!-- Start Top Bar -->
-      <div class="top-bar">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7">
-              <!-- Start Contact Info 
-              <ul class="contact-details">
-                <li><a href="#"><i class="fa fa-map-marker"></i> Calle Basilio Boggiero, Zaragoza, España</a>
-                </li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> socceraddicts@gmail.com</a>
-                </li>
-                <li><a href="#"><i class="fa fa-phone"></i> +34 976 618 450</a>
-                </li>
-              </ul>
-              <!-- End Contact Info 
-            </div>
-            <!-- .col-md-6 
-            <div class="col-md-5">
-               <!-- Start Social Links 
-              <ul class="social-list">
-                <li>
-                  <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                 <li>
-                  <a class="instgram itl-tooltip" data-placement="bottom" title="Instagram" href="#"><i class="fa fa-instagram"></i></a>
-                </li>
-              </ul>
-              <!-- End Social Links -->
-            </div>
-            <!-- .col-md-6 -->
-          </div>
-          <!-- .row -->
-        </div>
-        <!-- .container -->
-      </div>
-      <!-- .top-bar -->
-      <!-- End Top Bar -->
-
-
-      <!-- Start  Logo & Naviagtion  -->
+      <!-- Start  Logo & Naviagtion-->
       <div class="navbar navbar-default navbar-top" role="navigation" data-spy="affix" data-offset-top="50">
         <div class="container">
           <div class="navbar-header">
-            <!-- Stat Toggle Nav Link For Mobiles -->
+            <!-- Stat Toggle Nav Link For Mobiles-->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <i class="fa fa-bars"></i>
             </button>
-            <!-- End Toggle Nav Link For Mobiles -->
+            <!-- End Toggle Nav Link For Mobiles-->
             <a class="navbar-brand" href="{{ url('/inicio') }}">
               
               <img alt="" src="{{ URL::asset('images/captura3.PNG') }}">
@@ -130,7 +82,7 @@
             </a>
           </div>
           <div class="navbar-collapse collapse"></div>
-            <!-- Stat Search -->
+            <!-- Stat Search-->
             <div class="search-side">
               <a class="show-search"><i class="fa fa-search"></i></a>
               <div class="search-form">
@@ -139,7 +91,7 @@
                 </form>
               </div>
             </div>
-            <!-- End Search -->
+            <!-- End Search-->
            
 
             <!-- Menu de navegación web -->
@@ -163,14 +115,14 @@
               </li>
               <li>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
+                    <!-- Left Side Of Navbar-->
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!-- Right Side Of Navbar-->
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
+                        <!-- Authentication Links--> 
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}"><span class="fa fa-sign-in"></span>Login</a></li>
                             <li><a href="{{ route('register') }}"><span class="fa fa-pencil-square-o"></span>Registrarse</a></li>
@@ -220,7 +172,7 @@
           </div>
         </div>
 
-        <!-- Menu para moviles--> 
+        <!-- Menu para moviles-->
         <ul class="wpb-mobile-menu">
           <li>
                 <a href="{{ url('/inicio') }}">Inicio</a>
@@ -240,13 +192,16 @@
               <li><a href="{{ url('/contacto') }}">Contacto</a>
               </li>
         </ul>
-        <!-- Fin menu para moviles -->
+        <!-- Fin menu para moviles-->
 
       </div>
-      <!-- End Header Logo & Naviagtion -->
+      <!-- End Header Logo & Naviagtion-->
 
     </header>
-    <!-- End Header Section -->
+    <!-- End Header Section-->
+  </div>
+
+
 
   <div>
 
@@ -469,6 +424,16 @@
   <script type="text/javascript" src="js-bootstrap/skrollr.js"></script>
   <script type="text/javascript" src="js-bootstrap/jquery.parallax.js"></script>
   <script type="text/javascript" src="js-bootstrap/mediaelement-and-player.js"></script>
+
+
+  
+  <script type="text/javascript" src="bootstrap-design/js/bootstrap.js"></script>
+  <script type="text/javascript" src="bootstrap-design/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="bootstrap-design/js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="bootstrap-design/js/mdb.js"></script>
+  <script type="text/javascript" src="bootstrap-design/js/mdb.min.js"></script>
+  <script type="text/javascript" src="bootstrap-design/js/popper.min.js"></script>
+
   
 
  <!--Script para la eliminacion de los mensajes de alerta en 3 segundos-->

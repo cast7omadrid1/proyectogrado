@@ -30,7 +30,7 @@
                             <div class="thumbnail ">
                               <div class="panel-body ">
                               @foreach($article->image as $image)
-                                <img src="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive sizeimage" alt="...">
+                                <img src="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive img-rounded sizeimage" alt="...">
                               @endforeach 
                               </div>     
                               <div class="caption">
@@ -41,19 +41,6 @@
                                   {{$article->category->name}}
                                 </a>
                                   
-
-                                  <!--For each para mostrar el nombre del usuario y sus comentarios
-                                  @foreach($article->comentario as $comentario)-->
-                                      <!--<a href="">{{$comentario->comentarios}}</a>
-                                      <ul>
-                                        <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
-                                      </ul>
-                                  @endforeach-->
-
-
-                                 <!-- <p id='mostrar'><a href="javascript:mostrar(this, {{$article->id}})">Mostrar comentarios</a></p>-->
-
-
                                   <p id='mostrar'><button onclick="mostrar(this, {{$article->id}})">Mostrar comentarios</button></p>
 
 
@@ -66,35 +53,12 @@
                                     @endforeach  
                                   </div>
 
-
-
-
-                                
                                 <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
 
                               </div>
                               
                               
-                              <!--Enlace para mostrar div oculto
-                              <p id="mostrar"><a href="javascript:mostrar(this, {{$article->id}});">Mostrar comentarios</a></p>
-                              <div id="flotante_{{$article->id}}" style="display:none;">
-                                   <div id="close"><p><a href="javascript:cerrar(this, {{$article->id}});">cerrar</a></p></div>
-                                   @foreach($comentarios as $comentario)
-                                        {{$comentario->comentarios}}</br>
-                                   @endforeach    
-                              </div>-->
-                              
-                              <!--<p id="mostrar"><a href="javascript:mostrar();">Mostrar comentarios</a></p>
-                              <div id="flotante" style="display:none;">
-                                   <div id="close"><p><a href="javascript:cerrar();">cerrar</a></p></div>
-                                   @foreach($comentarios as $comentario)
-                                       {{$comentario->user->name}} : {{$comentario->comentarios}}</br>
-                                   @endforeach  
-                              </div>-->
-
-                              
-                            
 
                               <!--La ruta hace referencia al metodo utilizado por el formulario-->
                               {{Form::open(['route'=>['eventospena.store',$article],'method'=>'PUT','files'=>true])}}
@@ -163,7 +127,7 @@
                             <div class="thumbnail ">
                               <div class="panel-body ">
                               @foreach($article->image as $image)
-                                <img src="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive sizeimage" alt="...">
+                                <img src="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive img-rounded sizeimage" alt="...">
                               @endforeach 
                               </div>     
                               <div class="caption">
