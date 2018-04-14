@@ -55,6 +55,8 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/estilospropios.css') }}" media="screen">
 
 
+<link rel="stylesheet" href="{{ URL::asset('slimbox/css/slimbox2.css') }}" type="text/css" media="screen" />
+
 
 </head>
 
@@ -434,7 +436,9 @@
   <script type="text/javascript" src="bootstrap-design/js/mdb.min.js"></script>
   <script type="text/javascript" src="bootstrap-design/js/popper.min.js"></script>
 
-  
+  <!--Script para Slimbox2-->
+  <script type="text/javascript" src="slimbox/js/slimbox2.js"></script>
+
 
  <!--Script para la eliminacion de los mensajes de alerta en 3 segundos-->
   <script>

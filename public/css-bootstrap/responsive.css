@@ -213,6 +213,11 @@
 
 @media (max-width: 768px) {
 
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
+	}
 	
   	.navbar-top.affix .navbar-brand {
 		padding: 19px 15px; 
@@ -418,6 +423,8 @@
 
 @media (min-width : 992px) {
     
+
+
     #main-slide .slider-content h2{
 		font-size: 68px;
 	}
@@ -454,6 +461,12 @@
 	}
 	.portfolio-4column #portfolio-list li{
 		width: 49.85%;
+	}
+
+	/*tamaño imagenes en galeria*/
+	.sizeimage{
+		width: 750px;
+		height: 300px;
 	}
 }
 

@@ -30,7 +30,16 @@
                             <div class="thumbnail ">
                               <div class="panel-body ">
                               @foreach($article->image as $image)
-                                <img src="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive img-rounded sizeimage" alt="...">
+                                
+                                <!--Ampliación de imagenes-->
+                                <div>
+                                <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{ asset('images/articulos/'.$image->name) }}">
+                                  <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive sizeimage img-rounded" alt="...">
+                                </a>
+                                </div>
+                              
+                              </img>
+
                               @endforeach 
                               </div>     
                               <div class="caption">
@@ -41,11 +50,14 @@
                                   {{$article->category->name}}
                                 </a>
                                   
-                                  <p id='mostrar'><button onclick="mostrar(this, {{$article->id}})">Mostrar comentarios</button></p>
+                                  <!--<p id='mostrar'><button onclick="mostrar(this, {{$article->id}})">Mostrar comentarios</button></p>-->
+
+
+                                  <p id='mostrar'><a href="javascript:mostrar(this,{{$article->id}});"><span > {{$article->comentario->count()}} comentarios</span></a></p>
 
 
                                   <div id="flotante_{{$article->id}}" style="display:none;">
-                                    <div id="close"><p><a href="javascript:cerrar(this, {{$article->id}});">Cerrar</a></p></div>
+                                    <div id="close"><p><a href="javascript:cerrar(this, {{$article->id}});"><span class="glyphicon glyphicon-eye-close"></span></a></p></div>
                                     @foreach($article->comentario as $comentario)
                                       <ul>
                                         <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
