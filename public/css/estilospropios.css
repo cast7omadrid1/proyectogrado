@@ -68,6 +68,16 @@ h2:hover{
 /*	 03 - Estilos para galeria de imagenes
 /*------------------------------------------*/
 
+.thumbnail a > img, .thumbnail > img{
+
+	display: block  !important;
+	max-width: 100%  !important;
+	height: 300px !important;
+}
+
+
+
+
 .row{
 	
 	padding-left: 60px;

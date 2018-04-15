@@ -58,6 +58,8 @@
 <link rel="stylesheet" href="{{ URL::asset('slimbox/css/slimbox2.css') }}" type="text/css" media="screen" />
 
 
+
+
 </head>
 
 <body>
@@ -439,6 +441,9 @@
   <!--Script para Slimbox2-->
   <script type="text/javascript" src="slimbox/js/slimbox2.js"></script>
 
+
+  
+  
 
  <!--Script para la eliminacion de los mensajes de alerta en 3 segundos-->
   <script>

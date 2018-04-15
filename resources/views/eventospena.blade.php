@@ -11,9 +11,18 @@
     @if (Auth::check())
     @if (Auth::user()->user == 0 || Auth::user()->user == 1)
 
-<!--Redes Sociales-->
+
+
 <section>
 	
+
+  <script type="text/javascript">
+     
+    $( ".lb_flowers" ).rlightbox();
+      
+  </script>
+
+
 				<div class="row">
         <div class="col-xs-12 col-sm-6 col-md-8">
           <h2 class="tituloseccion" onmouseover="javascript:this.style.color='#19F0DB';" onmouseout="javascript:this.style.color='#00D2A8';">Nuestros eventos ¡Visitanos!</h2>
@@ -26,22 +35,24 @@
                         <div class="row">
                           
                           @foreach($articles as $article)
-                          <div class="col-md-6 leftimage ">
-                            <div class="thumbnail ">
+                          <div class="col-md-6 leftimage">
+                            <div class="thumbnail">
                               <div class="panel-body ">
                               @foreach($article->image as $image)
                                 
                                 <!--Ampliación de imagenes-->
-                                <div>
-                                <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{ asset('images/articulos/'.$image->name) }}">
-                                  <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive sizeimage img-rounded" alt="...">
-                                </a>
-                                </div>
-                              
-                              </img>
+                    
+                                
+                              <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{ asset('images/articulos/'.$image->name) }}">  
+                                <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{ asset('images/articulos/'.$image->name) }}" class=" img-rounded sizeimage" alt="...">
+                              </a>
 
                               @endforeach 
-                              </div>     
+
+
+                              </div>
+
+
                               <div class="caption">
                                 <h3>{{$article->description}}</h3>
                                 
@@ -51,7 +62,6 @@
                                 </a>
                                   
                                   <!--<p id='mostrar'><button onclick="mostrar(this, {{$article->id}})">Mostrar comentarios</button></p>-->
-
 
                                   <p id='mostrar'><a href="javascript:mostrar(this,{{$article->id}});"><span > {{$article->comentario->count()}} comentarios</span></a></p>
 
@@ -139,7 +149,10 @@
                             <div class="thumbnail ">
                               <div class="panel-body ">
                               @foreach($article->image as $image)
-                                <img src="{{ asset('images/articulos/'.$image->name) }}" class="img-responsive img-rounded sizeimage" alt="...">
+                                 <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{ asset('images/articulos/'.$image->name) }}">  
+                                  <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{ asset('images/articulos/'.$image->name) }}" class=" img-rounded sizeimage" alt="...">
+                                 </a>
+
                               @endforeach 
                               </div>     
                               <div class="caption">
@@ -149,6 +162,20 @@
                                   {{$article->category->name}}
                                 </a>
                                
+
+                               <p id='mostrar'><a href="javascript:mostrar(this,{{$article->id}});"><span > {{$article->comentario->count()}} comentarios</span></a></p>
+
+
+                                  <div id="flotante_{{$article->id}}" style="display:none;">
+                                    <div id="close"><p><a href="javascript:cerrar(this, {{$article->id}});"><span class="glyphicon glyphicon-eye-close"></span></a></p></div>
+                                    @foreach($article->comentario as $comentario)
+                                      <ul>
+                                        <li><b>{{$comentario->user->name}}</b> : {{$comentario->comentarios}}</li>
+                                      </ul>
+                                    @endforeach  
+                                  </div>
+
+                                  
                                 <!--Mostramos hace cuanto se ha creado el ultimo articulo-->
                                 <i>{{$article->created_at->diffForHumans()}}</i>
                               </div>
@@ -184,5 +211,7 @@
 
 @endif
 @endif
+
+ 
 
 @endsection
