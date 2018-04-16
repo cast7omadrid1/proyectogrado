@@ -37,9 +37,10 @@
                             <div class="thumbnail ">
                               <div class="panel-body ">
                               @foreach($article->image as $image)
-                                <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{ asset('images/articulos/'.$image->name) }}">  
-                                  <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{ asset('images/articulos/'.$image->name) }}" class=" img-rounded sizeimage" alt="...">
+                                <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{$article->description}}">  
+                                  <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{$article->description}}" class=" img-rounded sizeimage" alt="...">
                                 </a>
+
 
                               @endforeach 
                               </div>     
@@ -133,9 +134,11 @@
                             <div class="thumbnail ">
                               <div class="panel-body ">
                               @foreach($article->image as $image)
-                                 <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{ asset('images/articulos/'.$image->name) }}">  
-                                  <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{ asset('images/articulos/'.$image->name) }}" class=" img-rounded sizeimage" alt="...">
-                                 </a>
+                              
+                                <a href="{{ asset('images/articulos/'.$image->name) }}" rel="lightbox" title="{{$article->description}}">  
+                                  <img src="{{ asset('images/articulos/'.$image->name) }}" title="{{$article->description}}" class=" img-rounded sizeimage" alt="...">
+                                </a>
+
 
                               @endforeach 
                               </div>     

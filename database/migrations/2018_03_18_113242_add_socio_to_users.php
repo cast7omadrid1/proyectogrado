@@ -15,7 +15,7 @@ class AddSocioToUsers extends Migration
     {
         //para la gestión de admin
         Schema::table('users', function($table){
-            $table->integer('socio')->default(0);
+            $table->integer('socio')->unsigned()->unique();
         });
     }
 
