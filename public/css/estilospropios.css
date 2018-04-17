@@ -68,6 +68,8 @@ h2:hover{
 /*	 03 - Estilos para galeria de imagenes
 /*------------------------------------------*/
 
+
+/*para vista de la galeria de imagenes*/
 .thumbnail a > img, .thumbnail > img{
 
 	display: block  !important;

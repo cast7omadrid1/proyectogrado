@@ -44,6 +44,14 @@ class User extends Authenticatable
     }
 
 
+    //un usuario puede hacer varios pago
+    public function pago(){
+
+        return $this->hasMany('App\Pago','socio_id','socio');
+
+    }
+
+
     public function scopeSearch($query, $name){
 
         //nombre  de la columna donde busca, 'como', contenido que va a buscar

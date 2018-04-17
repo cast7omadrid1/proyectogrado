@@ -310,7 +310,7 @@ Route::get('/excel_tags', 'ExcelController@exportTags')->name('admin.excel_tags'
 Route::resource('comentarios','ListacomentariosController');
 
 
-//ruta para el listado de articulos en panel admin
+//ruta para el listado de comentarios en panel admin
 Route::get('/listacomentarios','ListacomentariosController@index')->name('comentarios.listacomentarios');
 
 
@@ -341,3 +341,11 @@ Route::get('eliminarcomentarios/{id}/destroy',[
 
 /*Ruta exportar tabla excel*/
 Route::get('/excel_comentarios', 'ExcelController@exportcomentarios')->name('admin.excel_comentarios');
+
+
+
+//ruta para listado de usuarios
+Route::resource('pagos','ListapagosController');
+
+//ruta para el listado de pagos en panel admin
+Route::get('/listapagos','ListapagosController@index')->name('pagos.listapagos');

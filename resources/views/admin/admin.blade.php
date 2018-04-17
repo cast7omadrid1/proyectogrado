@@ -170,6 +170,9 @@
                 <a href="{{ url('/listausuarios') }}">Usuarios</a>
               </li>
               <li>
+                <a href="{{ url('/listapagos') }}">Pagos</a>
+              </li>
+              <li>
                 <a href="{{url('/listaarticulos')}}">Imágenes</a>
               </li>
               <li>

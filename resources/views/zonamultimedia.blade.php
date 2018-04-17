@@ -52,10 +52,7 @@
 
                                     
                                 </a>
-                               
-
-                               <!--<p id='mostrar'><button onclick="mostrar(this, {{$article->id}})"><span class="glyphicon glyphicon-envelope"></span></button></p>-->
-
+                            
                                <p id='mostrar'><a href="javascript:mostrar(this,{{$article->id}});"><span > {{$article->comentario->count()}} comentarios</span></a></p>
 
 
